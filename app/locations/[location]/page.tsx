@@ -1,5 +1,4 @@
-import React from "react";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { MapPin } from "lucide-react";
 
@@ -9,44 +8,63 @@ import LocationAboutClient from "@/components/about/LocationAboutClient";
 
 import { PRIMARY_LOCATIONS } from "@/lib/seo-metadata";
 
-import {
-  generateLocationContent,
-  generateBreadcrumbSchema,
-  clampSnippet,
-} from "@/lib/seo-metadata";
-
-import {
-  locationData,
-  validLocations,
-} from "@/constants/locations";
-
 /* =========================================================
-   BUSINESS CONTACT DETAILS
+   BUSINESS DETAILS
 ========================================================= */
 
 const BUSINESS_NAME = "Nidhi Bird Service";
+const BUSINESS_PHONE = "+91 86032 37881";
+const BUSINESS_EMAIL = "mk7810209@gmail.com";
+const BASE_URL = "https://www.nidhibirdservice.in";
 
-const BUSINESS_PHONE = "+91 8603237881";
-
-const BUSINESS_EMAIL =
-  "mk7810209@gmail.com";
-
-const BUSINESS_ADDRESS =
-  "Sohna, Haryana, India";
-
-/* =========================================================
-   WEBSITE
-========================================================= */
-
-const BASE_URL = "https://nidhibirdservice.in";
+/*
+ * Use the real business address here if you have a verified
+ * business location. Do not use a service-area city as an
+ * office address unless it is your actual address.
+ */
+const BUSINESS_ADDRESS = "Sohna, Haryana, India";
 
 /* =========================================================
-   ADDITIONAL SERVICE LOCATION: SOHNA, HARYANA
-   This fallback makes /locations/sohna/ available even if
-   Sohna is not yet present in the shared location constants.
+   LOCATION TYPES
 ========================================================= */
 
-const SOHNA_LOCATION = {
+type LocationInfo = {
+  name: string;
+  state: string;
+  areas: string[];
+  latitude: number;
+  longitude: number;
+};
+
+type PageParams = {
+  params: Promise<{
+    location: string;
+  }>;
+};
+
+/* =========================================================
+   LOCATION CONTENT
+   Defined locally to avoid the missing-export error.
+========================================================= */
+
+function generateLocationContent(
+  serviceName: string,
+  location: string,
+) {
+  return {
+    heading: `${serviceName} in ${location}`,
+    description:
+      `Nidhi Bird Service provides ${serviceName.toLowerCase()} ` +
+      `in ${location} and nearby areas. Contact our team to discuss ` +
+      "your property, installation requirements, and service availability.",
+  };
+}
+
+/* =========================================================
+   EXTRA LOCATION
+========================================================= */
+
+const SOHNA_LOCATION: LocationInfo = {
   name: "Sohna",
   state: "Haryana",
   areas: [
@@ -56,67 +74,100 @@ const SOHNA_LOCATION = {
     "Damdama",
     "Badshahpur",
   ],
-  // Approximate city-centre coordinates for the map embed.
   latitude: 28.247,
   longitude: 77.065,
 };
 
-function getLocationBySlug(slug: string) {
-  const existing = PRIMARY_LOCATIONS.find(
-    (loc) => loc.name.toLowerCase().replace(/\\s+/g, "-") === slug
-      || loc.name.toLowerCase() === slug
-  );
+/* =========================================================
+   LOCATION HELPERS
+========================================================= */
 
-  if (existing) return existing;
-  if (slug === "sohna" || slug === "sohna-haryana") return SOHNA_LOCATION;
+function normalizeSlug(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "-");
+}
+
+function getLocationBySlug(
+  slug: string,
+): LocationInfo | undefined {
+  const locations = PRIMARY_LOCATIONS as LocationInfo[];
+
+  const matched = locations.find((location) => {
+    return normalizeSlug(location.name) === slug;
+  });
+
+  if (matched) {
+    return matched;
+  }
+
+  if (slug === "sohna" || slug === "sohna-haryana") {
+    return SOHNA_LOCATION;
+  }
 
   return undefined;
 }
 
+function makeBreadcrumbSchema(locationName: string, slug: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${BASE_URL}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Locations",
+        item: `${BASE_URL}/locations/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: locationName,
+        item: `${BASE_URL}/locations/${slug}/`,
+      },
+    ],
+  };
+}
 
 /* =========================================================
    STATIC PARAMS
 ========================================================= */
 
 export async function generateStaticParams() {
-  const existingParams = PRIMARY_LOCATIONS.map((loc) => ({
-    location: loc.name.toLowerCase().replace(/\\s+/g, "-"),
+  const locations = PRIMARY_LOCATIONS as LocationInfo[];
+
+  const params = locations.map((location) => ({
+    location: normalizeSlug(location.name),
   }));
 
-  // Always include Sohna, Haryana.
-  if (!existingParams.some((item) => item.location === "sohna")) {
-    existingParams.push({ location: "sohna" });
+  if (!params.some((item) => item.location === "sohna")) {
+    params.push({ location: "sohna" });
   }
 
-  return existingParams;
+  return params;
 }
 
 /* =========================================================
-   PAGE PARAMS
-========================================================= */
-
-type PageParams = {
-  params: Promise<{
-    location: string;
-  }>;
-};
-
-/* =========================================================
-   METADATA
+   SEO METADATA
 ========================================================= */
 
 export async function generateMetadata({
   params,
 }: PageParams): Promise<Metadata> {
-  const { location: locName } = await params;
+  const { location: rawLocation } = await params;
+  const slug = normalizeSlug(rawLocation);
+  const location = getLocationBySlug(slug);
 
-  const normalizedLocation = locName.toLowerCase().replace(/\\s+/g, "-");
-
-  const matched = getLocationBySlug(normalizedLocation);
-
-  if (!matched) {
+  if (!location) {
     return {
-      title: "Location Not Found | Nidhi Bird Service",
+      title: `Location Not Found | ${BUSINESS_NAME}`,
       robots: {
         index: false,
         follow: true,
@@ -124,107 +175,58 @@ export async function generateMetadata({
     };
   }
 
-  const title = `${matched.name}, ${matched.state} Invisible Grills & Safety Nets | ${BUSINESS_NAME}`;
+  const title =
+    `Invisible Grills & Safety Nets in ${location.name} | ${BUSINESS_NAME}`;
 
-  const canonicalPath =
-    `/locations/${normalizedLocation}/`;
+  const description =
+    `Professional invisible grills, balcony safety nets, pigeon nets, ` +
+    `bird spikes and child safety solutions in ${location.name}, ` +
+    `${location.state}. Contact Nidhi Bird Service for installation details.`;
 
-  const locationMeta = {
-    areaServed: matched.areas.join(", "),
-    state: matched.state,
-    fullAddress: BUSINESS_ADDRESS,
-  };
+  const canonical = `${BASE_URL}/locations/${slug}/`;
 
   return {
     title,
-
+    description,
+    alternates: {
+      canonical,
+    },
     robots: {
       index: true,
       follow: true,
       "max-image-preview": "large",
-      "max-video-preview": -1,
-      "max-snippet": -1,
     },
-
-    description: clampSnippet(
-      `Professional invisible grills, balcony safety nets, pigeon nets and child safety solutions in ${matched.name}. Serving ${locationMeta.areaServed} and nearby areas with expert installation and support.`
-    ),
-
-    alternates: {
-      canonical: `${BASE_URL}${canonicalPath}`,
-    },
-
     openGraph: {
-      title:
-        `${BUSINESS_NAME} - Invisible Grills & Safety Nets in ${matched.name}`,
-
-      description:
-        `Professional invisible grills, balcony safety nets, pigeon nets and safety solutions in ${matched.name}, ${matched.state}. Serving homes, apartments and commercial spaces in the local service area.`,
-
-      url:
-        `${BASE_URL}/locations/${normalizedLocation}/`,
-
+      title,
+      description,
+      url: canonical,
       siteName: BUSINESS_NAME,
-
       type: "website",
-
       images: [
         {
-          url: "/images/invisible-grill-1.jpg",
+          url: `${BASE_URL}/images/invisible-grill-1.jpg`,
           width: 1200,
           height: 630,
-          alt:
-            `Professional Invisible Grills & Safety Nets Installation in ${matched.name}`,
+          alt: `Invisible grills and safety nets in ${location.name}`,
         },
       ],
     },
-
     twitter: {
       card: "summary_large_image",
-
-      title:
-        `${BUSINESS_NAME} - Invisible Grills & Safety Nets in ${matched.name}`,
-
-      description:
-        `Professional invisible grills, safety nets and bird protection solutions in ${matched.name}, ${matched.state}. Contact Nidhi Bird Service for installation and consultation.`,
-
-      images: [
-        "/images/invisible-grill-1.jpg",
-      ],
+      title,
+      description,
+      images: [`${BASE_URL}/images/invisible-grill-1.jpg`],
     },
-
     keywords: [
-      `invisible grills in ${matched.name}`,
-      `safety nets in ${matched.name}`,
-      `best invisible grills in ${matched.name}`,
-      `balcony safety nets in ${matched.name}`,
-      `pigeon nets in ${matched.name}`,
-      `children safety nets in ${matched.name}`,
-      `invisible grill installation in ${matched.name}`,
-      `invisible grills cost in ${matched.name}`,
-      `safety net installation in ${matched.name}`,
-      `bird protection nets in ${matched.name}`,
-      `invisible grills in ${matched.state}`,
-
-      ...matched.areas.map(
-        (area) => `invisible grills in ${area}`
-      ),
-
-      ...matched.areas
-        .slice(0, 4)
-        .map(
-          (area) => `safety nets in ${area}`
-        ),
-
-      "invisible grills near me",
-      "safety nets near me",
-      "Nidhi Bird Service",
-      "invisible grill installation",
-      "balcony safety nets",
-      "pigeon net installation",
-      "Delhi NCR invisible grills",
-      "Noida invisible grills",
-      "Gurugram invisible grills",
+      `invisible grills in ${location.name}`,
+      `safety nets in ${location.name}`,
+      `balcony safety nets in ${location.name}`,
+      `pigeon nets in ${location.name}`,
+      `bird spikes in ${location.name}`,
+      `child safety nets in ${location.name}`,
+      `invisible grill installation in ${location.name}`,
+      ...location.areas.map((area) => `safety nets in ${area}`),
+      BUSINESS_NAME,
     ],
   };
 }
@@ -235,479 +237,164 @@ export async function generateMetadata({
 
 export default async function LocationPage({
   params,
-}: {
-  params: Promise<{
-    location: string;
-  }>;
-}) {
-  const { location: locName } = await params;
+}: PageParams) {
+  const { location: rawLocation } = await params;
+  const slug = normalizeSlug(rawLocation);
+  const location = getLocationBySlug(slug);
 
-  /* =======================================================
-     VALIDATE LOCATION
-  ======================================================== */
-
-  if (
-    !locName ||
-    typeof locName !== "string"
-  ) {
+  if (!location) {
     notFound();
   }
 
-  const normalizedLocation = locName.toLowerCase().replace(/\\s+/g, "-");
+  const content = generateLocationContent(
+    "Invisible Grills & Safety Nets",
+    location.name,
+  );
 
-  const sharedLocationKey =
-    normalizedLocation as keyof typeof locationData;
+  const canonical = `${BASE_URL}/locations/${slug}/`;
 
-  const matched =
-    normalizedLocation === "sohna" || normalizedLocation === "sohna-haryana"
-      ? SOHNA_LOCATION
-      : validLocations.includes(sharedLocationKey as any)
-        ? locationData[sharedLocationKey]
-        : undefined;
+  const breadcrumbSchema = makeBreadcrumbSchema(
+    location.name,
+    slug,
+  );
 
-  if (!matched) {
-    notFound();
-  }
-
-  const locationDisplay = matched.name;
-
-  /* =======================================================
-     BUSINESS PHONE
-  ======================================================== */
-
-  const phone = BUSINESS_PHONE;
-
-  /* =======================================================
-     LOCATION CONTENT
-  ======================================================== */
-
-  const locContent =
-    generateLocationContent(
-      "Invisible Grills & Safety Nets",
-      locationDisplay
-    );
-
-  /* =======================================================
-     BREADCRUMB SCHEMA
-  ======================================================== */
-
-  const breadcrumbSchema =
-    generateBreadcrumbSchema(
-      [
-        {
-          name: "Home",
-          url: "/",
-        },
-
-        {
-          name: locationDisplay,
-          url: `/locations/${normalizedLocation}/`,
-        },
-      ],
-
-      `/locations/${normalizedLocation}/`
-    );
-
-  /* =======================================================
-     LOCAL BUSINESS SCHEMA
-  ======================================================== */
-
-  const ld = {
+  const localBusinessSchema = {
     "@context": "https://schema.org",
-
-    "@graph": [
-      {
-        "@type": "LocalBusiness",
-
-        "@id":
-          `${BASE_URL}/locations/${normalizedLocation}/#localbusiness`,
-
-        name:
-          `${BUSINESS_NAME} - ${locationDisplay}`,
-
-        alternateName: [
-          "Nidhi Bird Service",
-          "Invisible Grills",
-          "Safety Nets",
-        ],
-
-        telephone: phone,
-
-        email: BUSINESS_EMAIL,
-
-        url:
-          `${BASE_URL}/locations/${normalizedLocation}/`,
-
-        priceRange: "₹₹",
-
-        image: [
-          `${BASE_URL}/logo.png`,
-          `${BASE_URL}/images/hero-image.jpg`,
-        ],
-
-        description:
-          locContent.description,
-
-        areaServed:
-          matched.areas.map(
-            (area) => ({
-              "@type": "Place",
-              name: area,
-            })
-          ),
-
-        serviceArea: {
-          "@type": "City",
-
-          name: locationDisplay,
-
-          containedInPlace: {
-            "@type": "State",
-            name: matched.state,
-          },
-        },
-
-        makesOffer: [
-          {
-            "@type": "Offer",
-
-            itemOffered: {
-              "@type": "Service",
-
-              name:
-                "Invisible Grills Installation",
-
-              description:
-                "Professional invisible grills installation for balconies, windows and other residential or commercial spaces.",
-
-              areaServed:
-                matched.areas,
-            },
-          },
-
-          {
-            "@type": "Offer",
-
-            itemOffered: {
-              "@type": "Service",
-
-              name:
-                "Safety Nets Installation",
-
-              description:
-                "Professional safety net installation for balconies, windows, terraces and open areas for child and pet safety.",
-
-              areaServed:
-                matched.areas,
-            },
-          },
-
-          {
-            "@type": "Offer",
-
-            itemOffered: {
-              "@type": "Service",
-
-              name:
-                "Bird Protection Solutions",
-
-              description:
-                "Humane bird protection solutions including pigeon nets and bird spikes for residential and commercial spaces.",
-
-              areaServed:
-                matched.areas,
-            },
-          },
-
-          {
-            "@type": "Offer",
-
-            itemOffered: {
-              "@type": "Service",
-
-              name:
-                "Balcony Safety Solutions",
-
-              description:
-                "Balcony safety solutions designed to improve protection while maintaining ventilation, visibility and appearance.",
-
-              areaServed:
-                matched.areas,
-            },
-          },
-        ],
-
-        /* =================================================
-           BUSINESS OFFICE ADDRESS
-        ================================================== */
-
-        address: {
-          "@type": "PostalAddress",
-
-          streetAddress:
-            "Sohna",
-
-          addressLocality:
-            "Sohna",
-
-          addressRegion:
-            "Haryana",
-
-          addressCountry:
-            "IN",
-        },
-
-        geo: {
-          "@type": "GeoCoordinates",
-
-          latitude:
-            matched.latitude,
-
-          longitude:
-            matched.longitude,
-        },
-
-        openingHoursSpecification: [
-          {
-            "@type":
-              "OpeningHoursSpecification",
-
-            dayOfWeek: [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday",
-              "Saturday",
-            ],
-
-            opens: "08:00",
-
-            closes: "20:00",
-          },
-
-          {
-            "@type":
-              "OpeningHoursSpecification",
-
-            dayOfWeek: "Sunday",
-
-            opens: "09:00",
-
-            closes: "18:00",
-          },
-        ],
-
-        mainEntityOfPage: {
-          "@type": "WebPage",
-
-          "@id":
-            `${BASE_URL}/locations/${normalizedLocation}/`,
-        },
-      },
-
-      breadcrumbSchema,
-    ],
+    "@type": "LocalBusiness",
+    "@id": `${canonical}#localbusiness`,
+    name: BUSINESS_NAME,
+    url: canonical,
+    telephone: BUSINESS_PHONE,
+    email: BUSINESS_EMAIL,
+    description: content.description,
+    image: `${BASE_URL}/logo.png`,
+    priceRange: "Contact for pricing",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: location.name,
+      addressRegion: location.state,
+      addressCountry: "IN",
+    },
+    areaServed: location.areas.map((area) => ({
+      "@type": "Place",
+      name: area,
+    })),
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: location.latitude,
+      longitude: location.longitude,
+    },
   };
 
-  /* =======================================================
-     PAGE
-  ======================================================== */
-
   return (
-    <>
-      <main>
+    <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            localBusinessSchema,
+            breadcrumbSchema,
+          ]),
+        }}
+      />
 
-        {/* =================================================
-            LOCAL BUSINESS JSON-LD
-        ================================================== */}
+      <HeroWithHeaderWrapper>
+        <div className="overflow-hidden rounded-2xl">
+          <LocationHero
+            location={location.name}
+            breadcrumbItems={[
+              { label: "Home", href: "/" },
+              { label: "Locations", href: "/locations/" },
+              {
+                label: location.name,
+                href: `/locations/${slug}/`,
+              },
+            ]}
+          />
+        </div>
+      </HeroWithHeaderWrapper>
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html:
-              JSON.stringify(ld),
-          }}
-        />
+      <section className="py-10 md:py-16">
+        <div className="container">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-12">
+            <div className="lg:col-span-2">
+              <h1 className="mb-4 text-3xl font-bold md:text-4xl">
+                {content.heading}
+              </h1>
 
-        {/* =================================================
-            HERO SECTION
-        ================================================== */}
+              <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+                {content.description}
+              </p>
 
-        <HeroWithHeaderWrapper>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href={`tel:${BUSINESS_PHONE.replace(/\s+/g, "")}`}
+                  className="inline-flex rounded-lg bg-primary px-5 py-3 font-semibold text-primary-foreground"
+                >
+                  Call Now
+                </a>
 
-          <div
-            style={{
-              borderRadius: "1rem",
-            }}
-            className="overflow-hidden"
-          >
+                <a
+                  href="https://wa.me/918603237881"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex rounded-lg border px-5 py-3 font-semibold"
+                >
+                  WhatsApp Us
+                </a>
+              </div>
+            </div>
 
-            <LocationHero
-              location={locationDisplay}
+            <aside className="rounded-2xl bg-slate-900 p-6 text-white md:p-8">
+              <h2 className="mb-5 text-xl font-semibold">
+                Areas We Serve in {location.name}
+              </h2>
 
-              breadcrumbItems={[
-                {
-                  label: "Home",
-                  href: "/",
-                },
+              <ul className="space-y-3">
+                {location.areas.map((area) => (
+                  <li key={area} className="flex items-start gap-2">
+                    <MapPin
+                      aria-hidden="true"
+                      className="mt-1 h-4 w-4 shrink-0"
+                    />
+                    <span>{area}</span>
+                  </li>
+                ))}
+              </ul>
 
-                {
-                  label: "Services",
-                  href: "/services/",
-                },
+              <p className="mt-6 border-t border-white/20 pt-4 text-sm text-white/75">
+                Contact Nidhi Bird Service to confirm availability
+                for your area.
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
 
-                {
-                  label: locationDisplay,
+      <LocationAboutClient location={location.name} />
 
-                  href:
-                    `/locations/${normalizedLocation}/`,
-                },
-              ]}
+      <section className="section-bg-2 py-12 md:py-16">
+        <div className="container">
+          <h2 className="mb-8 text-center text-3xl font-bold text-white">
+            Our Service Area in {location.name}
+          </h2>
+
+          <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl shadow-lg">
+            <iframe
+              title={`Map of ${location.name}, ${location.state}`}
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(
+                `${location.name}, ${location.state}, India`,
+              )}&output=embed`}
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
             />
-
           </div>
-
-        </HeroWithHeaderWrapper>
-
-        {/* =================================================
-            INTRO SECTION
-        ================================================== */}
-
-        <section className="py-8 md:py-12 lg:py-16">
-
-          <div className="container">
-
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-12">
-
-              {/* =================================================
-                  LEFT CONTENT
-              ================================================== */}
-
-              <div className="lg:col-span-2">
-
-                <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-
-                  {locContent.heading}
-
-                </h2>
-
-                <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-
-                  {locContent.description}
-
-                </p>
-
-              </div>
-
-              {/* =================================================
-                  AREAS COVERED
-              ================================================== */}
-
-              <div className="lg:col-span-1">
-
-                <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-[hsl(222,47%,11%)] via-[hsl(217,33%,17%)] to-[hsl(215,25%,22%)] p-6 shadow-lg md:p-8 lg:sticky lg:top-20">
-
-                  <h3 className="mb-6 font-heading text-lg font-semibold text-white md:text-xl">
-
-                    Areas We Serve in{" "}
-
-                    {locationDisplay}
-
-                  </h3>
-
-                  <div className="mb-6 grid grid-cols-2 gap-3">
-
-                    {matched.areas.map(
-                      (area, index) => (
-
-                        <div
-                          key={index}
-                          className="flex items-start gap-2"
-                        >
-
-                          <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
-
-                          <span className="text-sm text-white/80 md:text-base">
-
-                            {area}
-
-                          </span>
-
-                        </div>
-                    ))}
-
-                  </div>
-
-                  <p className="border-t border-white/10 pt-4 text-xs text-white/60 md:text-sm">
-
-                    Don't see your area?
-                    Contact Nidhi Bird Service
-                    for service availability in
-                    your location.
-
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-        {/* =================================================
-            ABOUT SECTION
-        ================================================== */}
-
-        <LocationAboutClient
-          location={locationDisplay}
-        />
-
-        {/* =================================================
-            MAP SECTION
-        ================================================== */}
-
-        <section className="section-bg-2 relative py-12 md:py-16 lg:py-20">
-
-          <div className="absolute inset-0 grid-pattern-dark opacity-30" />
-
-          <div className="container relative z-10">
-
-            <h2 className="mb-8 text-center font-heading text-3xl font-bold text-white md:mb-12 md:text-4xl">
-
-              Our Service Area in{" "}
-
-              {locationDisplay}
-
-            </h2>
-
-            <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl shadow-lg">
-
-              <iframe
-                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000!2d${matched.longitude}!3d${matched.latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z${locationDisplay}!5e0!3m2!1sen!2sin!4v1706789012345`}
-                width="100%"
-                height="450"
-                style={{
-                  border: 0,
-                }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title={
-                  `Service area map for ${locationDisplay}`
-                }
-              />
-
-            </div>
-
-          </div>
-
-        </section>
-
-      </main>
-    </>
+        </div>
+      </section>
+    </main>
   );
 }

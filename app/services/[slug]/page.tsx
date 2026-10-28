@@ -15,7 +15,6 @@ import { getCanonicalUrl } from "@/lib/canonical-url";
 
 import {
   generateServiceMetadata,
-  generateServiceFAQSchema,
   PRIMARY_LOCATIONS,
 } from "@/lib/seo-metadata";
 
@@ -60,6 +59,22 @@ type FAQ = {
   question: string;
   answer: string;
 };
+
+// Keep FAQ schema generation local to this page so it does not depend on
+// a generateFAQSchema export that is missing from lib/seo-metadata.ts.
+function generateFAQSchema(faqs: FAQ[]) {
+  return {
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+}
 
 interface ServiceData {
   id: string;
@@ -348,7 +363,7 @@ export default async function ServiceDetailPage({
   });
 
   const faqSchema =
-    generateServiceFAQSchema(faqs);
+    generateFAQSchema(faqs);
 
   const combinedSchema = {
     "@context": "https://schema.org",

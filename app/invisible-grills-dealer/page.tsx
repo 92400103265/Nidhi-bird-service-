@@ -29,7 +29,6 @@ import {
   locationData,
 } from "@/constants/locations";
 
-import { generateServiceFAQSchema } from "@/lib/seo-metadata";
 import { generateServiceSchema } from "@/lib/service-schema";
 
 /* =========================================================
@@ -357,8 +356,17 @@ export default function InvisibleGrillsDealerPage() {
      FAQ SCHEMA
   ======================================================== */
 
-  const faqSchema =
-    generateServiceFAQSchema(dealerFAQs);
+  const faqSchema = {
+    "@type": "FAQPage",
+    mainEntity: dealerFAQs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
 
   /* =======================================================
      LOCAL BUSINESS SCHEMA
