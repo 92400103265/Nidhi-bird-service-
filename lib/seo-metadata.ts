@@ -93,9 +93,9 @@ export function clampSnippet(text: string, max = 155): string {
 // not push the title past Google's ~60 character display window: full brand,
 // then the short form, then no brand at all.
 export function withBrand(base: string, max = 60): string {
-  const full = `${base} | Sweta Invisible Grill`;
+  const full = `${base} | Nidhi Bird Service`;
   if (full.length <= max) return full;
-  const short = `${base} | Sweta Grill`;
+  const short = `${base} | Nidhi Bird Service`;
   return short.length <= max ? short : base;
 }
 

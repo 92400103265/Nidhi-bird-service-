@@ -6,12 +6,18 @@ import {
   ServiceLocationsSliderClient,
 } from "@/components/services/ServicesClientWrapper";
 
+const BUSINESS_NAME = "Nidhi Bird Service";
+const SITE_URL = "https://nidhibirdservice.in";
+const PHONE_NUMBER = "+918603237881";
+const DISPLAY_PHONE = "+91 86032 37881";
+const BUSINESS_EMAIL = "invisiblesafetygrillpatna@gmail.com";
+
 export const metadata: Metadata = {
   title:
-    "Invisible Grills, Safety Nets & Bird Protection Services | Sweta Invisible Grill",
+    "Invisible Grills, Safety Nets & Bird Protection Services | Nidhi Bird Service",
 
   description:
-    "Sweta Invisible Grill provides invisible grills, balcony safety nets, children protection nets, pigeon nets and bird protection solutions with professional installation in Gurugram, Delhi NCR and Noida.",
+    "Nidhi Bird Service provides invisible grills, balcony safety nets, children's safety nets, pet protection nets, pigeon nets and bird protection solutions with professional installation in Gurugram, Delhi NCR and Noida.",
 
   robots: {
     index: true,
@@ -22,84 +28,50 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical:
-      "https://invisiblesafetygrillpatna.com/services/",
+    canonical: `${SITE_URL}/services/`,
   },
 
   keywords: [
-    // Category & Service Types
-    "types of safety nets",
     "invisible grills",
-    "safety nets",
-    "bird protection systems",
-    "pigeon nets",
-    "bird nets",
-    "children protection nets",
-    "balcony safety nets",
-
-    // Problem-Solving Keywords
-    "child safety solutions",
-    "bird protection solutions",
-    "child-safe balcony",
-    "bird-proof solutions",
-    "rust-proof materials",
-    "UV-resistant nets",
-
-    // Service Features
     "invisible grill installation",
-    "professional installation",
-    "durable safety nets",
-    "stainless steel invisible grills",
-    "balcony protection",
-    "window safety grills",
-
-    // Specific Services
-    "invisible grills",
-    "safety nets",
-    "pigeon nets",
-    "bird nets",
-    "children safety nets",
-    "pet safety nets",
-    "balcony safety nets",
-    "bird protection nets",
-
-    // Quality & Trust
-    "professional invisible grill installation",
-    "quality safety nets",
-    "expert installation",
-    "trusted invisible grill service",
-    "professional safety solutions",
-
-    // Long-tail Service Keywords
-    "affordable invisible grills",
-    "professional safety net installation",
-    "custom invisible grill solutions",
-    "balcony safety solutions",
-    "window safety solutions",
-    "pigeon control solutions",
-
-    // Location Keywords
     "invisible grills in Gurugram",
-    "invisible grill installation in Gurugram",
+    "safety nets",
     "safety nets in Gurugram",
-    "pigeon nets in Gurugram",
-    "bird nets in Gurugram",
+    "balcony safety nets",
     "balcony safety nets in Gurugram",
+    "children safety nets",
+    "child safety nets for balconies",
+    "pet safety nets",
+    "pigeon nets",
+    "pigeon net installation",
+    "bird nets",
+    "bird protection systems",
+    "bird protection nets",
+    "bird control solutions",
+    "window safety grills",
+    "stainless steel invisible grills",
+    "professional safety net installation",
+    "balcony protection solutions",
+    "pigeon control solutions",
     "invisible grills in Delhi NCR",
     "safety nets in Delhi NCR",
     "invisible grills in Noida",
     "safety nets in Noida",
+    "Nidhi Bird Service",
   ],
 
   openGraph: {
     title:
-      "Sweta Invisible Grill - Invisible Grills, Safety Nets & Bird Protection Services",
+      "Nidhi Bird Service | Invisible Grills, Safety Nets & Bird Protection",
 
     description:
-      "Professional invisible grills, balcony safety nets, pigeon nets, bird protection and child safety solutions in Gurugram, Delhi NCR and Noida.",
+      "Professional invisible grill installation, balcony safety nets, children's safety nets, pigeon nets and bird protection solutions across Gurugram, Delhi NCR and Noida.",
 
-    url:
-      "https://invisiblesafetygrillpatna.com/services",
+    url: `${SITE_URL}/services/`,
+
+    siteName: BUSINESS_NAME,
+
+    type: "website",
 
     images: [
       {
@@ -107,11 +79,11 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt:
-          "Sweta Invisible Grill - Invisible Grills and Safety Nets in Gurugram",
+          "Nidhi Bird Service - Invisible Grills and Safety Nets",
       },
     ],
 
-    locale: "en-IN",
+    locale: "en_IN",
   },
 };
 
@@ -119,97 +91,107 @@ export default function ServicesPage() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
+    name: BUSINESS_NAME,
+    url: `${SITE_URL}/`,
+    telephone: PHONE_NUMBER,
+    email: BUSINESS_EMAIL,
 
-    name: "Sweta Invisible Grill",
-
-    url: "https://invisiblesafetygrillpatna.com",
-
-    telephone: "+91 7065953252",
-
-    email: "invisiblesafetygrillpatna@gmail.com",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: PHONE_NUMBER,
+      contactType: "customer service",
+      areaServed: "IN",
+      availableLanguage: ["English", "Hindi"],
+    },
 
     address: {
       "@type": "PostalAddress",
-
       streetAddress:
         "Rajeev Chowk, near Jain Complex, Hans Enclave, Sector 33",
-
       addressLocality: "Gurugram",
-
       addressRegion: "Haryana",
-
       postalCode: "122004",
-
       addressCountry: "IN",
     },
+
+    areaServed: [
+      {
+        "@type": "City",
+        name: "Gurugram",
+      },
+      {
+        "@type": "Place",
+        name: "Delhi NCR",
+      },
+      {
+        "@type": "City",
+        name: "Noida",
+      },
+    ],
   };
 
   const servicesPageSchema = {
     "@context": "https://schema.org",
-
     "@type": "WebPage",
-
-    name:
-      "Sweta Invisible Grill Services",
+    name: `${BUSINESS_NAME} Services`,
 
     description:
-      "Invisible grills, balcony safety nets, children protection nets, pigeon nets and bird protection solutions provided by Sweta Invisible Grill in Gurugram, Delhi NCR and Noida.",
+      "Invisible grills, balcony safety nets, children's and pet protection nets, pigeon nets and bird protection solutions in Gurugram, Delhi NCR and Noida.",
 
-    url:
-      "https://invisiblesafetygrillpatna.com/services/",
+    url: `${SITE_URL}/services/`,
+
+    isPartOf: {
+      "@type": "WebSite",
+      name: BUSINESS_NAME,
+      url: `${SITE_URL}/`,
+    },
 
     mainEntity: {
       "@type": "ItemList",
 
-      itemListElement: Object.entries(
-        servicesData
-      ).map(([slug, service], index) => ({
-        "@type": "ListItem",
+      itemListElement: Object.entries(servicesData).map(
+        ([slug, service], index) => ({
+          "@type": "ListItem",
+          position: index + 1,
 
-        position: index + 1,
+          item: {
+            "@type": "Service",
+            name: service.title,
+            description: service.description,
 
-        item: {
-          "@type": "Service",
+            url: `${SITE_URL}/services/${slug}/`,
 
-          name: service.title,
+            image: service.image,
 
-          description: service.description,
+            provider: {
+              "@type": "Organization",
+              name: BUSINESS_NAME,
+              url: `${SITE_URL}/`,
+              telephone: PHONE_NUMBER,
+            },
 
-          url: `https://invisiblesafetygrillpatna.com/services/${slug}/`,
-
-          image: service.image,
-
-          provider: {
-            "@type": "Organization",
-
-            name: "Sweta Invisible Grill",
-
-            url:
-              "https://invisiblesafetygrillpatna.com/",
+            areaServed: [
+              {
+                "@type": "City",
+                name: "Gurugram",
+              },
+              {
+                "@type": "Place",
+                name: "Delhi NCR",
+              },
+              {
+                "@type": "City",
+                name: "Noida",
+              },
+            ],
           },
-
-          areaServed: [
-            {
-              "@type": "City",
-              name: "Gurugram",
-            },
-            {
-              "@type": "Place",
-              name: "Delhi NCR",
-            },
-            {
-              "@type": "City",
-              name: "Noida",
-            },
-          ],
-        },
-      })),
+        }),
+      ),
     },
   };
 
   const combinedSchema = {
     "@context": "https://schema.org",
-
     "@graph": [
       organizationSchema,
       servicesPageSchema,
@@ -221,9 +203,7 @@ export default function ServicesPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            combinedSchema
-          ),
+          __html: JSON.stringify(combinedSchema),
         }}
       />
 
@@ -238,18 +218,44 @@ export default function ServicesPage() {
         />
       </div>
 
-      <div className="container mx-auto px-4">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
+      <section
+        className="container mx-auto px-4"
+        aria-labelledby="services-heading"
+      >
+        <h1
+          id="services-heading"
+          className="mb-3 text-3xl font-bold md:text-4xl lg:text-5xl"
+        >
           Invisible Grills, Safety Nets &amp; Bird Protection Services
         </h1>
 
-        <p className="text-muted-foreground max-w-3xl">
-          Sweta Invisible Grill provides professional installation of
-          invisible grills, balcony safety nets, children and pet
+        <p className="max-w-3xl text-muted-foreground">
+          {BUSINESS_NAME} provides professional installation of
+          invisible grills, balcony safety nets, children's and pet
           protection nets, pigeon nets and bird protection solutions
           across Gurugram, Delhi NCR and Noida.
         </p>
-      </div>
+
+        <div className="mt-5 flex flex-wrap gap-3">
+          <a
+            href={`tel:${PHONE_NUMBER}`}
+            className="inline-flex items-center rounded-lg bg-orange-600 px-5 py-3 font-semibold text-white transition-colors hover:bg-orange-700"
+            aria-label={`Call ${BUSINESS_NAME} at ${DISPLAY_PHONE}`}
+          >
+            Call {DISPLAY_PHONE}
+          </a>
+
+          <a
+            href={`https://wa.me/${PHONE_NUMBER.replace("+", "")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center rounded-lg border border-green-600 px-5 py-3 font-semibold text-green-700 transition-colors hover:bg-green-50"
+            aria-label={`Contact ${BUSINESS_NAME} on WhatsApp`}
+          >
+            WhatsApp Us
+          </a>
+        </div>
+      </section>
 
       <ServicesSectionClient />
 

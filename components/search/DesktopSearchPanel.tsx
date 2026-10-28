@@ -306,7 +306,7 @@ const DesktopSearchPanel: React.FC<DesktopSearchPanelProps> = ({
                 color: "#111827",
               }}
             >
-              Search Sweta Invisible Grill
+              Search Nidhi Bird Service
             </h2>
 
             <button

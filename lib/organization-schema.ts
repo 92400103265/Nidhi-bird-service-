@@ -94,5 +94,5 @@ export const generateOrganizationSchema = () => ({
 
   knowsLanguage: ["en", "hi"],
 
-  slogan: "Safety, Quality & Style with Sweta Invisible Grill",
+  slogan: "Safety, Quality & Style with Nidhi Bird Service Invisible Grills and Safety Nets",
 });

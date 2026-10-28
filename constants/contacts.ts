@@ -1,21 +1,28 @@
- // Centralized phone/contact constants
+
+// Centralized contact details for Nidhi Bird Service
+
+export const BUSINESS_NAME = "Nidhi Bird Service";
+
 export const PRIMARY = {
-  display: "+91-70659 53252",
-  phone: "+917065953252",
-  spaced: "+91 70659 53252",
-  tel: "tel:+917065953252",
-  wa: "https://wa.me/917065953252",
+  name: BUSINESS_NAME,
+  display: "+91 86032 37881",
+  phone: "+918603237881",
+  spaced: "+91 86032 37881",
+  tel: "tel:+918603237881",
+  wa: "https://wa.me/918603237881",
 };
 
 export const SECONDARY = {
-  display: "+91-70659 53252",
-  phone: "+917065953252",
-  spaced: "+91 70659 53252",
-  tel: "tel:+917065953252",
-  wa: "https://wa.me/917065953252",
+  name: BUSINESS_NAME,
+  display: "+91 86032 37881",
+  phone: "+918603237881",
+  spaced: "+91 86032 37881",
+  tel: "tel:+918603237881",
+  wa: "https://wa.me/918603237881",
 };
 
 export default {
+  BUSINESS_NAME,
   PRIMARY,
   SECONDARY,
 };

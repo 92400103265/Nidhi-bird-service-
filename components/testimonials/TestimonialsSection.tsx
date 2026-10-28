@@ -20,7 +20,7 @@ const TestimonialsSection = () => {
       name: "Rahul Verma",
       service: "Pigeon Nets",
       rating: 5,
-      review: "Excellent service from Sweta Invisible Grill. The pigeon net was installed neatly on our balcony in Gurugram. The team explained the available options clearly and completed the work professionally.",
+      review: "Excellent service from Nidhi Bird Service. The pigeon net was installed neatly on our balcony in Gurugram. The team explained the available options clearly and completed the work professionally.",
       initials: "RV",
       location: "Gurugram"
     },
@@ -36,7 +36,7 @@ const TestimonialsSection = () => {
       name: "Rajesh Kumar",
       service: "Pigeon Nets",
       rating: 5,
-      review: "Very good service by the Sweta Invisible Grill team. The pigeon safety net was installed neatly and the team completed the work professionally. Thank you for the excellent service.",
+      review: "Very good service by the Nidhi Bird Service team. The pigeon safety net was installed neatly and the team completed the work professionally. Thank you for the excellent service.",
       initials: "RK",
       location: "Noida"
     },
@@ -72,7 +72,7 @@ const TestimonialsSection = () => {
             What Our <span style={{ color: "#FF6B42" }}>Customers Say</span>
           </h2>
           <p className="text-sm md:text-base lg:text-lg max-w-2xl mx-auto" style={{ color: "#C8D8EE" }}>
-            Feedback from customers who trust Sweta Invisible Grill for their safety and protection needs
+            Feedback from customers who trust Nidhi Bird Service for their safety and protection needs
           </p>
         </div>
 

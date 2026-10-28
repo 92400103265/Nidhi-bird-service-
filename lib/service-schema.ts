@@ -100,7 +100,7 @@ export function generateServiceSchema(params: {
   const serviceSchema = {
     "@type": ["Service", "HomeAndConstructionBusiness"],
     name: `${serviceName} Installation Service`,
-    description: `Professional ${serviceName} installation by Sweta Invisible Grill`,
+    description: `Professional ${serviceName} installation by Nidhi Bird Service, ensuring safety, quality, and customer satisfaction.`,
     image: `${baseUrl}${image}`,
     telephone: PRIMARY.phone,
     priceRange: "₹₹₹",

@@ -82,11 +82,11 @@ const isCanonicalSlug = (slug) =>
   !(slug in SERVICE_SLUG_ALIASES);
 
 // =====================================================
-// SWETA INVISIBLE GRILL - MAIN WEBSITE DOMAIN
+// NIDHI BIRD SERVICE - MAIN WEBSITE DOMAIN
 // =====================================================
 
 const BASE_URL =
-  "https://www.invisiblesafetygrillpatna.com";
+  "https://www.nidhibirdservice.in/";
 
 // Read the location order from the single source of truth
 // so the sitemap always matches constants/locations.ts.

@@ -1,5 +1,5 @@
 export const dealerBenefits = [
-  "Official authorized dealership for Sweta Invisible Grill with genuine invisible grill and safety products",
+  "Official authorized dealership for Nidhi Bird Service with genuine invisible grill and safety products",
   "Wholesale pricing and bulk order support for contractors, builders, and distributors",
   "Complete technical support and professional installation guidance",
   "Marketing support, lead sharing, and dealer visibility assistance",
@@ -11,7 +11,7 @@ export const dealerFeatures = [
   {
     title: "Authorized Dealership",
     description:
-      "Become an official Sweta Invisible Grill dealer with territory opportunities available in selected markets.",
+      "Become an official Nidhi Bird Service dealer with territory opportunities available in selected markets.",
   },
   {
     title: "Wholesale Pricing",
@@ -64,7 +64,7 @@ export const dealerFaqs = [
 ];
 
 export const dealerHeroDescription = (location: string) =>
-  `Become an authorized invisible grill dealer in ${location} with wholesale pricing, territory opportunities, dealer training, and dedicated support from Sweta Invisible Grill.`;
+  `Become an authorized invisible grill dealer in ${location} with wholesale pricing, territory opportunities, dealer training, and dedicated support from Nidhi Bird Service.`;
 
 export const dealerPageDescription = (location: string) =>
-  `Partner with Sweta Invisible Grill as an invisible grill dealer in ${location} and grow your business with wholesale pricing, bulk order support, product training, marketing assistance, and dealer-focused service.`;
+  `Partner with Nidhi Bird Service as an invisible grill dealer in ${location} and grow your business with wholesale pricing, bulk order support, product training, marketing assistance, and dealer-focused service.`;

@@ -96,8 +96,8 @@ export default function TermsOfService() {
                 4. Limitations
               </h2>
               <p>
-                To the extent permitted by applicable law, Sweta Invisible
-                Grill shall not be liable for damages arising from the use or
+                To the extent permitted by applicable law, Nidhi Bird Service and its suppliers
+                shall not be liable for damages arising from the use or
                 inability to use the materials on this website, including loss
                 of data, loss of profit, or business interruption.
               </p>
@@ -180,8 +180,8 @@ export default function TermsOfService() {
                 8. Warranties and Installation
               </h2>
               <p>
-                Products and installation services provided by Sweta Invisible
-                Grill may be covered by applicable manufacturer or service
+                Products and installation services provided by Nidhi Bird Service
+                may be covered by applicable manufacturer or service
                 warranties. Warranty coverage is subject to the specific
                 quotation, service agreement, proper maintenance, and normal
                 use of the installed product.

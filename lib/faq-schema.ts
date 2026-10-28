@@ -55,7 +55,7 @@ export const serviceFAQs: { [key: string]: FAQItem[] } = {
     {
       question: "What is the cost of invisible grills?",
       answer:
-        "The cost depends on the installation area, cable and fitting specifications, frame condition, height, and customization requirements. Contact Sweta Invisible Grill for a site assessment and quotation.",
+        "The cost depends on the installation area, cable and fitting specifications, frame condition, height, and customization requirements. Contact Nidhi Bird Service for a site assessment and quotation.",
     },
   ],
 
@@ -124,7 +124,7 @@ export const serviceFAQs: { [key: string]: FAQItem[] } = {
     {
       question: "Are the materials child-safe?",
       answer:
-        "Materials should be selected according to the intended application and installation requirements. Sweta Invisible Grill uses suitable safety products and installation methods for residential protection.",
+        "Materials should be selected according to the intended application and installation requirements. Nidhi Bird Service uses suitable safety products and installation methods for residential protection.",
     },
     {
       question: "Can children climb on the nets?",
@@ -178,16 +178,16 @@ export const serviceFAQs: { [key: string]: FAQItem[] } = {
 export function generateLocationFAQs(location: string): FAQItem[] {
   return [
     {
-      question: `Why choose Sweta Invisible Grill for invisible grills and safety nets in ${location}?`,
-      answer: `Sweta Invisible Grill provides professional invisible grill, balcony safety net, pigeon net, and related safety solutions in ${location}, with customized installation and customer support.`,
+      question: `Why choose Nidhi Bird Service for invisible grills and safety nets in ${location}?`,
+      answer: `Nidhi Bird Service provides professional invisible grill, balcony safety net, pigeon net, and related safety solutions in ${location}, with customized installation and customer support.`,
     },
     {
-      question: `What services does Sweta Invisible Grill provide in ${location}?`,
+      question: `What services does Nidhi Bird Service provide in ${location}?`,
       answer: `In ${location}, we provide invisible grills, balcony safety nets, pigeon nets, child safety solutions, bird protection, and other customized safety installations.`,
     },
     {
       question: `How do I get a quote for installation in ${location}?`,
-      answer: `Contact Sweta Invisible Grill with your installation requirements and location details. We can assess the project requirements and provide a suitable quotation for ${location}.`,
+      answer: `Contact Nidhi Bird Service with your installation requirements and location details. We can assess the project requirements and provide a suitable quotation for ${location}.`,
     },
     {
       question: `What is the installation timeline in ${location}?`,
@@ -195,7 +195,7 @@ export function generateLocationFAQs(location: string): FAQItem[] {
     },
     {
       question: `Do you provide after-sales service in ${location}?`,
-      answer: `Yes, Sweta Invisible Grill provides customer support and service assistance for installations in ${location} and surrounding service areas, subject to the applicable service requirements.`,
+      answer: `Yes, Nidhi Bird Service provides customer support and service assistance for installations in ${location} and surrounding service areas, subject to the applicable service requirements.`,
     },
   ];
 }

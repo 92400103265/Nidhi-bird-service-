@@ -127,7 +127,7 @@ jobs:
             "name": "sweta-invisible-grill-static",
             "version": "1.0.0",
             "private": true,
-            "description": "Prebuilt static export for Sweta Invisible Grill. Built by GitHub Actions from the master branch.",
+            "description": "Prebuilt static export for Nidhi Bird Service. Built by GitHub Actions from the master branch.",
             "scripts": {
               "build": "echo 'Prebuilt static export - nothing to build.'"
             }

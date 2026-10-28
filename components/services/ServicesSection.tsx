@@ -183,7 +183,7 @@ const ServicesSection = ({ showBreadcrumbs = false }: ServicesSectionProps) => {
                     <div className="relative h-48 w-full overflow-hidden">
                       <OptimizedImage
                         src={service.image}
-                        alt={`${service.title} installation by Sweta Invisible Grill for balcony, window and child safety in Gurugram, Delhi NCR and Noida`}
+                        alt={`${service.title} installation by Nidhi Bird Service for balcony, window and child safety in Gurugram, Delhi NCR and Noida`}
                         className="{service.id === 'cloth-drying' ? '' : 'object-cover'} group-hover:scale-110 transition-transform duration-500 w-full h-full absolute inset-0"
                       />
 
@@ -324,7 +324,7 @@ const ServicesSection = ({ showBreadcrumbs = false }: ServicesSectionProps) => {
             </h3>
 
             <p className="text-sm md:text-base" style={{ color: "#C8D8EE" }}>
-              Sweta Invisible Grill provides personalized invisible grill and safety net solutions tailored to your home, balcony, window or commercial space requirements.
+             Nidhi Bird Service provides personalized invisible grill and safety net solutions tailored to your home, balcony, window or commercial space requirements.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
