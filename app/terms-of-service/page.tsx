@@ -3,11 +3,11 @@ import { Metadata } from "next";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Sweta Invisible Grill",
+  title: "Terms of Service | Nidhi Bird Service",
   description:
-    "Terms of Service for Sweta Invisible Grill - Read our terms and conditions for using our services.",
+    "Terms of Service for Nidhi Bird Service - Read our terms and conditions for using our services.",
   alternates: {
-    canonical: "https://invisiblesafetygrillpatna.com/terms-of-service/",
+    canonical: "https://www.nidhibirdservice.in/terms-of-service/",
   },
   robots: "index, follow",
 };
@@ -38,7 +38,7 @@ export default function TermsOfService() {
               </h2>
               <p>
                 By accessing and using this website and services provided by
-                Sweta Invisible Grill, you accept and agree to be bound by the
+                Nidhi Bird Service, you accept and agree to be bound by the
                 terms and provisions of this agreement. If you do not agree to
                 these terms, please do not use this website or our services.
               </p>
@@ -51,7 +51,7 @@ export default function TermsOfService() {
               </h2>
               <p>
                 Permission is granted to temporarily download one copy of the
-                materials and information on the Sweta Invisible Grill website
+                materials and information on the Nidhi Bird Service website
                 for personal, non-commercial viewing only. This is a grant of
                 license, not a transfer of title, and under this license you
                 may not:
@@ -82,8 +82,8 @@ export default function TermsOfService() {
                 3. Disclaimer
               </h2>
               <p>
-                The materials on the Sweta Invisible Grill website are provided
-                on an "as is" basis. Sweta Invisible Grill makes no warranties,
+                The materials on the Nidhi Bird Service website are provided
+                on an "as is" basis. Nidhi Bird Service makes no warranties,
                 expressed or implied, regarding the accuracy, completeness,
                 reliability, or availability of the website materials or
                 services, except where expressly stated in writing.
@@ -109,9 +109,9 @@ export default function TermsOfService() {
                 5. Accuracy of Materials
               </h2>
               <p>
-                The materials appearing on the Sweta Invisible Grill website
+                The materials appearing on the Nidhi Bird Service website
                 could include technical, typographical, or photographic errors.
-                Sweta Invisible Grill does not warrant that all materials on
+                Nidhi Bird Service does not warrant that all materials on
                 the website are accurate, complete, or current. Content may be
                 changed or updated without prior notice.
               </p>
@@ -123,7 +123,7 @@ export default function TermsOfService() {
                 6. Materials License
               </h2>
               <p>
-                The materials contained on the Sweta Invisible Grill website
+                The materials contained on the Nidhi Bird Service website
                 are protected by applicable copyright and trademark laws.
                 Unauthorized use of these materials may violate applicable
                 copyright, trademark, and other laws.
@@ -194,7 +194,7 @@ export default function TermsOfService() {
                 9. Limitation of Liability
               </h2>
               <p>
-                Except as expressly set forth in writing, Sweta Invisible Grill
+                Except as expressly set forth in writing, Nidhi Bird Service
                 shall not be liable for consequential or indirect damages,
                 including lost profits, business interruption, or loss of use
                 arising from the use of or inability to use this website or the
@@ -208,7 +208,7 @@ export default function TermsOfService() {
                 10. Revision of Terms
               </h2>
               <p>
-                Sweta Invisible Grill may revise these Terms of Service from
+                Nidhi Bird Service may revise these Terms of Service from
                 time to time. Updated terms will be posted on this website.
                 Continued use of the website after changes are posted
                 constitutes acknowledgment of the updated terms.
@@ -259,22 +259,21 @@ export default function TermsOfService() {
 
               <div className="space-y-2">
                 <p>
-                  <strong>Business:</strong> Sweta Invisible Grill
+                  <strong>Business:</strong> Nidhi Bird Service
                 </p>
 
                 <p>
                   <strong>Email:</strong>{" "}
-                  invisiblesafetygrillpatna@gmail.com
+                  mk7810209@gmail.com
                 </p>
 
                 <p>
-                  <strong>Phone:</strong> +91 7065953252
+                  <strong>Phone:</strong> +91 8603237881
                 </p>
 
                 <p>
                   <strong>Address:</strong>{" "}
-                  Rajeev Chowk, near Jain Complex, Hans Enclave, Sector 33,
-                  Gurugram, Haryana 122004, India
+                  Sohna, Haryana, India
                 </p>
               </div>
             </section>

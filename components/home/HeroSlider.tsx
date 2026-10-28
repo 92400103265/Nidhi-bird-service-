@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
@@ -35,9 +36,9 @@ const slides = [
     title: "Invisible Grills Dealer",
     subtitle: "Authorized Dealership & Wholesale",
     description:
-      "Partner with Sweta Invisible Grill for invisible grill dealership opportunities. Get wholesale pricing, product guidance, installation support and business assistance for your market.",
+      "Partner with Nidhi Bird Service for invisible grill dealership opportunities. Get wholesale pricing, product guidance, installation support and business assistance for your market.",
     image: "/images/invisible-grill-dealer.jpg",
-    alt: "Invisible Grills dealer and wholesale services by Sweta Invisible Grill",
+    alt: "Invisible Grills dealer and wholesale services by Nidhi Bird Service",
     keywords: ["Wholesale Pricing", "Dealer Support", "Installation Guidance"],
     href: getServiceRoute("invisible-grills-dealer"),
     cta: "Become a Dealer",
@@ -220,7 +221,7 @@ export function HeroSlider() {
               style={{ color: "#FF6B42" }}
             />
 
-            Sweta Invisible Grill
+            Nidhi Bird Service
           </div>
 
           {/* Stable SEO heading */}
@@ -305,11 +306,11 @@ export function HeroSlider() {
               }}
               asChild
             >
-              <a href="tel:+917065953252" data-track="call">
+              <a href="tel:+918603237881" data-track="call">
                 <Phone className="h-3 w-3 md:h-4 md:w-4" />
 
                 <span className="hidden sm:inline">
-                  +91 7065953252
+                  +91 8603237881
                 </span>
 
                 <span className="sm:hidden">

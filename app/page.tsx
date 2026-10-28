@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+ import type { Metadata } from "next";
 export const dynamic = "force-static";
 import { HeroSlider } from "@/components/home/HeroSlider";
 import HeroWithHeaderWrapper from "@/components/layout/HeroWithHeaderWrapper";
@@ -10,7 +10,7 @@ import TestimonialsClient from "@/components/testimonials/TestimonialsClient";
 import ServiceLocationsSlider from "@/components/services/ServiceLocationsSlider";
 
 const TITLE =
-  "Invisible Grills & Safety Nets in Gurugram | Sweta Invisible Grill";
+  "Invisible Grills & Safety Nets in Gurugram | Nidhi Bird Service";
 
 const DESCRIPTION =
   "Invisible grill and safety net installation in Gurugram, Delhi NCR and Noida. Premium stainless steel invisible grills, pigeon nets, balcony safety nets and child-safe protection.";
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   alternates: {
-    canonical: "https://www.invisiblesafetygrillpatna.com/",
+    canonical: "https://www.nidhibirdservice.in/",
   },
   openGraph: {
     locale: "en_IN",
@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     title: TITLE,
     description:
       "Professional invisible grill installation and safety nets in Gurugram, Delhi NCR and Noida. Premium stainless steel grills, pigeon nets and child-safe balcony protection.",
-    url: "https://www.invisiblesafetygrillpatna.com/",
-    siteName: "Sweta Invisible Grill",
+    url: "https://www.nidhibirdservice.in/",
+    siteName: "Nidhi Bird Service",
     images: [
       {
         url: "/images/invisible-grill-1.jpg",
         width: 1200,
         height: 630,
-        alt: "Invisible Grills in Gurugram - Sweta Invisible Grill",
+        alt: "Invisible Grills in Gurugram - Nidhi Bird Service",
         type: "image/jpeg",
       },
       {
@@ -104,7 +104,7 @@ const homeFaqs = [
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "@id": "https://www.invisiblesafetygrillpatna.com/#faq",
+  "@id": "https://www.nidhibirdservice.in/#faq",
   mainEntity: homeFaqs.map((faq) => ({
     "@type": "Question",
     name: faq.question,

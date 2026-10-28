@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "404 - Page Not Found | Sweta Invisible Grill",
+  title: "404 - Page Not Found | Nidhi Bird Service",
   description:
-    "The page you are looking for does not exist on the Sweta Invisible Grill website.",
+    "The page you are looking for does not exist on the Nidhi Bird Service website.",
   robots: {
     index: false,
     follow: true,

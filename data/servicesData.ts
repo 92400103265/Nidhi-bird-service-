@@ -1,5 +1,4 @@
 
-import { PRIMARY } from '@/constants/contacts'
 
 export const servicesData = {
   // Invisible Grills Services
@@ -7,8 +6,8 @@ export const servicesData = {
     id: "invisible-grills",
     title: "Invisible Grills",
     heroDescription: "Invisible grill installation service for balconies and windows using premium stainless steel cables. Enjoy unobstructed views, child-safe protection, and reliable anti-theft performance.",
-    description: "Premium invisible grills and invisible balcony grill systems for Gurugram, Delhi NCR, and Noida. Ideal for balcony protection, window security, and apartment safety with professional invisible grill installation.",
-    detailedDescription: "Sweta Invisible Grill delivers premium invisible grill installation with SS316 and SS304 invisible grills for balcony, window, and apartment applications. Our transparent cable grill systems provide invisible grill protection for child safety, pet safety, and pigeon prevention without blocking your view. Trusted for invisible grill fitting, secure mounting, and professional installation across Gurugram, Delhi NCR, and Noida.",
+    description: "Premium invisible grills and invisible balcony grill systems for Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Ideal for balcony protection, window security, and apartment safety with professional invisible grill installation.",
+    detailedDescription: "Nidhi Bird Service delivers premium invisible grill installation with SS316 and SS304 invisible grills for balcony, window, and apartment applications. Our transparent cable grill systems provide invisible grill protection for child safety, pet safety, and pigeon prevention without blocking your view. Trusted for invisible grill fitting, secure mounting, and professional installation across Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
     category: "invisible-grills",
     features: [
       "SS316 invisible grill for coastal durability",
@@ -40,7 +39,7 @@ export const servicesData = {
     id: "invisible-grills-balcony",
     title: "Invisible Grill for Balcony",
     heroDescription: "Invisible balcony grill installation that preserves your view while protecting children, pets, and property from falls and intruders.",
-    description: "Transparent balcony invisible grills in Gurugram, Delhi NCR, and Noida. Durable SS316 and SS304 installation for premium balcony safety.",
+    description: "Transparent balcony invisible grills in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Durable SS316 and SS304 installation for premium balcony safety.",
     detailedDescription: "Our invisible balcony grill service brings premium invisible grill solutions to residential and apartment balconies. The transparent grill system improves safety and comfort while delivering a sleek look and long-term durability. Ideal for families seeking balcony protection, child-safe balcony rails, and invisible grill design.",
     category: "invisible-grills",
     features: [
@@ -73,9 +72,9 @@ export const servicesData = {
   "invisible-grills-dealer": {
     id: "invisible-grills-dealer",
     title: "Invisible Grills Dealer",
-    heroDescription: "Partner with Sweta Invisible Grill for authorized dealership with wholesale pricing.",
+    heroDescription: "Partner with Nidhi Bird Service for authorized dealership with wholesale pricing.",
     description: "Become an authorized invisible grills dealer with exclusive territory rights and bulk order benefits.",
-    detailedDescription: "Partner with Sweta Invisible Grill for authorized dealership. Access wholesale pricing, professional training, marketing support, and bulk order benefits. Perfect for hardware stores, contractors, and distributors.",
+    detailedDescription: "Partner with Nidhi Bird Service for authorized dealership. Access wholesale pricing, professional training, marketing support, and bulk order benefits. Perfect for hardware stores, contractors, and distributors.",
     category: "invisible-grills",
     features: [
       "Official authorized dealership",
@@ -107,8 +106,8 @@ export const servicesData = {
     id: "balcony-safety",
     title: "Balcony Safety Nets",
     heroDescription: "Protect your home with custom balcony safety nets. Keep your family safe while preserving unobstructed views and airflow.",
-    description: "Best balcony safety nets and balcony safety net installation in Gurugram, Delhi NCR, and Noida. Transparent balcony nets for child safety, pet protection, and secure living spaces.",
-    detailedDescription: "Sweta Invisible Grill is a trusted partner delivering premium balcony safety net installation for apartments and homes in Gurugram, Delhi NCR, and Noida. Our balcony safety nets are made from UV-resistant, weatherproof HDPE and designed to protect children, pets, and family members while keeping your view clear. Choose our balcony net installation for reliable child-safe and pet-safe protection with expert fitting and long-lasting durability.",
+    description: "Best balcony safety nets and balcony safety net installation in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Transparent balcony nets for child safety, pet protection, and secure living spaces.",
+    detailedDescription: "Nidhi Bird Service is a trusted partner delivering premium balcony safety net installation for apartments and homes in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our balcony safety nets are made from UV-resistant, weatherproof HDPE and designed to protect children, pets, and family members while keeping your view clear. Choose our balcony net installation for reliable child-safe and pet-safe protection with expert fitting and long-lasting durability.",
     category: "safety-nets",
     features: [
       "UV Resistant Balcony Net Material",
@@ -141,8 +140,8 @@ export const servicesData = {
     id: "children-protection",
     title: "Children Protection Nets",
     heroDescription: "Give your child the freedom to play safely. Our protective nets provide invisible security, letting kids enjoy fresh air without the worry.",
-    description: "Strong children protection nets for windows and balcony. Quality child-safe, durable, and professionally installed in Gurugram, Delhi NCR, and Noida.",
-    detailedDescription: "Sweta Invisible Grill is a trusted partner, delivering the best quality child protection nets for windows and balcony, ensuring maximum safety for kids in homes and apartments. Our child-safe nets are made from durable HDPE, providing invisible protection while allowing fresh air and natural light. Trusted for quality, professional installation, and peace of mind for parents in Gurugram, Delhi NCR, and Noida.",
+    description: "Strong children protection nets for windows and balcony. Quality child-safe, durable, and professionally installed in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
+    detailedDescription: "Nidhi Bird Service is a trusted partner, delivering the best quality child protection nets for windows and balcony, ensuring maximum safety for kids in homes and apartments. Our child-safe nets are made from durable HDPE, providing invisible protection while allowing fresh air and natural light. Trusted for quality, professional installation, and peace of mind for parents in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
     category: "safety-nets",
     features: [
       "Child Safe Materials",
@@ -175,8 +174,8 @@ export const servicesData = {
     id: "duct-area",
     title: "Duct Area Nets",
     heroDescription: "Secure duct openings without blocking ventilation. Our duct area nets safeguard ducts and utility openings while keeping airflow unobstructed.",
-    description: "Trusted duct area net installation in Gurugram, Delhi NCR, and Noida. Quality duct area safety nets for ventilation shafts, ducts, and utility spaces.",
-    detailedDescription: "Sweta Invisible Grill is a trusted partner delivering premium duct area net installation for ventilation shafts and utility spaces across Gurugram, Delhi NCR, and Noida. Our fire-retardant HDPE duct area nets prevent debris, bird nesting, and unauthorized access while preserving airflow and ventilation performance. Choose our duct area safety nets for reliable protection, easy maintenance, and professional installation for durable, fire-retardant protection with clean, professional installation.",
+    description: "Trusted duct area net installation in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Quality duct area safety nets for ventilation shafts, ducts, and utility spaces.",
+    detailedDescription: "Nidhi Bird Service is a trusted partner delivering premium duct area net installation for ventilation shafts and utility spaces across Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our fire-retardant HDPE duct area nets prevent debris, bird nesting, and unauthorized access while preserving airflow and ventilation performance. Choose our duct area safety nets for reliable protection, easy maintenance, and professional installation for durable, fire-retardant protection with clean, professional installation.",
     category: "safety-nets",
     features: [
       "Fire Retardant Material",
@@ -209,8 +208,8 @@ export const servicesData = {
     id: "cloth-drying",
     title: "Ceiling Cloth Drying Hangers",
     heroDescription: "Smart space-saving cloth drying hangers for modern homes. Dry clothes indoors with a durable ceiling-mounted system built for apartments and compact spaces.",
-    description: "Ceiling cloth drying hanger installation in Gurugram, Delhi NCR, and Noida. Durable cloth drying hangers for efficient indoor laundry drying.",
-    detailedDescription: "Sweta Invisible Grill provides premium ceiling cloth drying hanger installation for apartments and homes in Gurugram, Delhi NCR, and Noida. Our ceiling cloth drying hangers save space, support full laundry loads, and make indoor clothes drying convenient and weather independent. Installed with strong stainless steel pulleys and durable hanger rods, our cloth drying systems are reliable, easy to use, and built for long-term performance.",
+    description: "Ceiling cloth drying hanger installation in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Durable cloth drying hangers for efficient indoor laundry drying.",
+    detailedDescription: "Nidhi Bird Service provides premium ceiling cloth drying hanger installation for apartments and homes in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our ceiling cloth drying hangers save space, support full laundry loads, and make indoor clothes drying convenient and weather independent. Installed with strong stainless steel pulleys and durable hanger rods, our cloth drying systems are reliable, easy to use, and built for long-term performance.",
     category: "invisible-grills",
     features: [
       "Space Saving Design",
@@ -243,8 +242,8 @@ export const servicesData = {
     id: "pets-safety",
     title: "Pets Safety Nets",
     heroDescription: "Let your pets enjoy the outdoors safely. Protective nets designed for your furry friends, giving them freedom while keeping them secure.",
-    description: "Strong pets safety nets for balcony and terraces. Quality pet-safe, bite-resistant, and professionally installed in Gurugram, Delhi NCR, and Noida.",
-    detailedDescription: "Sweta Invisible Grill is a trusted partner, delivering the best quality pet safety nets for balcony and terraces, providing secure boundaries for pets in homes and apartments. Our pet-safe HDPE nets are bite-resistant, non-toxic, and durable. Trusted for quality, professional installation, and pet safety in Gurugram, Delhi NCR, and Noida.",
+    description: "Strong pets safety nets for balcony and terraces. Quality pet-safe, bite-resistant, and professionally installed in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
+    detailedDescription: "Nidhi Bird Service is a trusted partner, delivering the best quality pet safety nets for balcony and terraces, providing secure boundaries for pets in homes and apartments. Our pet-safe HDPE nets are bite-resistant, non-toxic, and durable. Trusted for quality, professional installation, and pet safety in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
     category: "safety-nets",
     features: ["Pet Safe Material", "Bite Resistant", "UV Protected", "Weather Proof", "Easy Cleaning", "Durable Design"],
     benefits: [
@@ -270,8 +269,8 @@ export const servicesData = {
     id: "grill-balcony",
     title: "Grill Balcony Safety Nets",
     heroDescription: "Grill with confidence on your balcony. Heat-resistant safety nets that protect while you cook, without compromising on ventilation or outdoor enjoyment.",
-    description: "Durable grill balcony safety nets for outdoor cooking areas. Quality heat-resistant, fire-retardant, and professionally installed in Gurugram, Delhi NCR, and Noida.",
-    detailedDescription: "Sweta Invisible Grill is a trusted partner, delivering the best quality grill balcony safety nets for outdoor cooking areas in homes and apartments. Our heat-resistant, fire-retardant nets provide protection and ventilation during grilling sessions. Trusted for quality, durability, and professional fitting in Gurugram, Delhi NCR, and Noida.",
+    description: "Durable grill balcony safety nets for outdoor cooking areas. Quality heat-resistant, fire-retardant, and professionally installed in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
+    detailedDescription: "Nidhi Bird Service is a trusted partner, delivering the best quality grill balcony safety nets for outdoor cooking areas in homes and apartments. Our heat-resistant, fire-retardant nets provide protection and ventilation during grilling sessions. Trusted for quality, durability, and professional fitting in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
     category: "safety-nets",
     features: ["Heat Resistant", "Fire Retardant", "Grease Resistant", "Easy Installation", "Weather Proof", "Ventilation Friendly"],
     benefits: [
@@ -297,8 +296,8 @@ export const servicesData = {
     id: "terrace-top",
     title: "Terrace Top Nets",
     heroDescription: "Transform your terrace into an oasis. Premium nets provide shade, privacy, and weather protection for year-round outdoor comfort.",
-    description: "Durable terrace top nets for shade, privacy, and weather protection. Quality installation in Gurugram, Delhi NCR, and Noida.",
-    detailedDescription: "Sweta Invisible Grill is a trusted partner, delivering the best quality terrace top nets for shade, privacy, and weather protection in homes and commercial spaces. Our UV-stabilized HDPE nets offer complete protection and comfort for outdoor living. Trusted for quality, durability, and professional installation in Gurugram, Delhi NCR, and Noida.",
+    description: "Durable terrace top nets for shade, privacy, and weather protection. Quality installation in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
+    detailedDescription: "Nidhi Bird Service is a trusted partner, delivering the best quality terrace top nets for shade, privacy, and weather protection in homes and commercial spaces. Our UV-stabilized HDPE nets offer complete protection and comfort for outdoor living. Trusted for quality, durability, and professional installation in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
     category: "safety-nets",
     features: ["UV Protection", "Rain Resistant", "Privacy Coverage", "Wind Resistant", "Easy Maintenance", "Custom Fitting"],
     benefits: [
@@ -324,8 +323,8 @@ export const servicesData = {
     id: "industrial-safety",
     title: "Industrial Safety Nets",
     heroDescription: "Heavy-duty protection for industrial environments. Engineered safety nets that meet standards and keep your workplace secure and compliant.",
-    description: "Reliable industrial safety nets for warehouses, factories, and construction sites. Quality heavy-duty, fire-retardant, and professionally installed in Gurugram, Delhi NCR, and Noida.",
-    detailedDescription: "Sweta Invisible Grill is a trusted partner, delivering the best quality industrial safety nets for warehouses, factories, and construction sites in Gurugram, Delhi NCR, and Noida. Our heavy-duty, fire-retardant HDPE nets meet all safety standards and regulations. Trusted for quality, durability, and professional fitting for industrial applications.",
+    description: "Reliable industrial safety nets for warehouses, factories, and construction sites. Quality heavy-duty, fire-retardant, and professionally installed in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
+    detailedDescription: "Nidhi Bird Service is a trusted partner, delivering the best quality industrial safety nets for warehouses, factories, and construction sites in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our heavy-duty, fire-retardant HDPE nets meet all safety standards and regulations. Trusted for quality, durability, and professional fitting for industrial applications.",
     category: "safety-nets",
     features: ["Heavy Duty Material", "High Load Capacity", "Fire Retardant", "Industrial Grade", "Weather Resistant", "Safety Compliant"],
     benefits: [
@@ -351,8 +350,8 @@ export const servicesData = {
     id: "open-area",
     title: "Open Area Safety Nets",
     heroDescription: "Create safe recreational spaces with comprehensive coverage. Protective nets for gardens and playgrounds, ensuring worry-free outdoor fun.",
-    description: "Quality open area safety nets for gardens, playgrounds, and recreational spaces. Large coverage, UV-resistant, and professionally installed in Gurugram, Delhi NCR, and Noida.",
-    detailedDescription: "Sweta Invisible Grill is a trusted partner, delivering the best quality open area safety nets for gardens, playgrounds, and recreational spaces in Gurugram, Delhi NCR, and Noida. Our UV-stabilized HDPE nets provide large coverage, safety, and durability for outdoor environments. Trusted for quality, professional installation, and safe recreational spaces.",
+    description: "Quality open area safety nets for gardens, playgrounds, and recreational spaces. Large coverage, UV-resistant, and professionally installed in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
+    detailedDescription: "Nidhi Bird Service is a trusted partner, delivering the best quality open area safety nets for gardens, playgrounds, and recreational spaces in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our UV-stabilized HDPE nets provide large coverage, safety, and durability for outdoor environments. Trusted for quality, professional installation, and safe recreational spaces.",
     category: "safety-nets",
     features: ["Large Coverage", "UV Stabilized", "Weather Resistant", "Flexible Installation", "Eco Friendly", "Long Lasting"],
     benefits: [
@@ -378,8 +377,8 @@ export const servicesData = {
     id: "staircase-safety",
     title: "Staircase Safety Nets",
     heroDescription: "Prevent falls and ensure safety for all ages. Custom-fitted nets for staircases that blend seamlessly with your home's design.",
-    description: "Quality staircase safety nets for homes and apartments. Prevents falls, child-safe, and professionally installed in Gurugram, Delhi NCR, and Noida.",
-    detailedDescription: "Sweta Invisible Grill is a trusted partner, delivering the best quality staircase safety nets for homes and apartments in Gurugram, Delhi NCR, and Noida. Our custom-fitted HDPE nets prevent falls, ensure child and elderly safety, and blend with interior design. Trusted for quality, professional installation, and maximum safety.",
+    description: "Quality staircase safety nets for homes and apartments. Prevents falls, child-safe, and professionally installed in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
+    detailedDescription: "Nidhi Bird Service is a trusted partner, delivering the best quality staircase safety nets for homes and apartments in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our custom-fitted HDPE nets prevent falls, ensure child and elderly safety, and blend with interior design. Trusted for quality, professional installation, and maximum safety.",
     category: "safety-nets",
     features: ["Custom Fitting", "Fall Prevention", "Aesthetic Design", "Easy Installation", "Child Safe", "Durable Material"],
     benefits: [
@@ -405,8 +404,8 @@ export const servicesData = {
     id: "construction-safety",
     title: "Construction Safety Nets",
     heroDescription: "Protect your workers and site with professional-grade safety nets. OSHA-compliant solutions for construction safety and peace of mind.",
-    description: "Quality construction safety nets for worker protection and debris control. Heavy-duty, OSHA-compliant, and professionally installed in Gurugram, Delhi NCR, and Noida.",
-    detailedDescription: "Sweta Invisible Grill is a trusted partner, delivering the best quality construction safety nets for worker protection and debris control at construction sites in Gurugram, Delhi NCR, and Noida. Our heavy-duty, OSHA-compliant nets provide reliable safety and meet international standards. Trusted for quality, durability, and professional fitting for construction projects.",
+    description: "Quality construction safety nets for worker protection and debris control. Heavy-duty, OSHA-compliant, and professionally installed in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
+    detailedDescription: "Nidhi Bird Service is a trusted partner, delivering the best quality construction safety nets for worker protection and debris control at construction sites in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our heavy-duty, OSHA-compliant nets provide reliable safety and meet international standards. Trusted for quality, durability, and professional fitting for construction projects.",
     category: "safety-nets",
     features: ["Worker Protection", "Debris Control", "Heavy Duty", "Quick Setup", "Reusable", "Safety Standards"],
     benefits: [
@@ -432,8 +431,8 @@ export const servicesData = {
     id: "mosquito-nets",
     title: "Mosquito Nets",
     heroDescription: "Keep insects out, let nature in. Fine mesh mosquito protection for windows and doors, ensuring health and comfort without chemicals.",
-    description: "Quality mosquito nets for doors, windows, and outdoor areas. Fine mesh, insect protection, and professionally installed in Gurugram, Delhi NCR, and Noida.",
-    detailedDescription: "Sweta Invisible Grill is a trusted partner, delivering the best quality mosquito nets for doors, windows, and outdoor areas in Gurugram, Delhi NCR, and Noida. Our fine mesh nets provide effective insect protection, maintain ventilation, and are easy to clean. Trusted for quality, professional installation, and healthy living environments.",
+    description: "Quality mosquito nets for doors, windows, and outdoor areas. Fine mesh, insect protection, and professionally installed in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
+    detailedDescription: "Nidhi Bird Service is a trusted partner, delivering the best quality mosquito nets for doors, windows, and outdoor areas in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our fine mesh nets provide effective insect protection, maintain ventilation, and are easy to clean. Trusted for quality, professional installation, and healthy living environments.",
     category: "safety-nets",
     features: ["Fine Mesh", "Insect Protection", "Ventilation Friendly", "Easy Cleaning", "Durable Frame", "Custom Fitting"],
     benefits: [
@@ -459,8 +458,8 @@ export const servicesData = {
     id: "hdpe-nylon",
     title: "HDPE Nets, Nylon Nets",
     heroDescription: "Versatile protection for any application. Premium HDPE and nylon nets engineered for strength, durability, and adaptability.",
-    description: "Quality HDPE and nylon nets for safety, protection, and recreational uses. Premium material, versatile, and professionally installed in Gurugram, Delhi NCR, and Noida.",
-    detailedDescription: "Sweta Invisible Grill is a trusted partner, delivering the best quality HDPE and nylon nets for safety, protection, and recreational uses in Gurugram, Delhi NCR, and Noida. Our premium quality nets are available in various mesh sizes and colors for different requirements. Trusted for quality, versatility, and professional installation.",
+    description: "Quality HDPE and nylon nets for safety, protection, and recreational uses. Premium material, versatile, and professionally installed in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
+    detailedDescription: "Nidhi Bird Service is a trusted partner, delivering the best quality HDPE and nylon nets for safety, protection, and recreational uses in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our premium quality nets are available in various mesh sizes and colors for different requirements. Trusted for quality, versatility, and professional installation.",
     category: "safety-nets",
     features: ["Premium Material", "Versatile Use", "High Strength", "Weather Proof", "Custom Sizes", "Multi Purpose"],
     benefits: [
@@ -487,8 +486,8 @@ export const servicesData = {
     id: "pigeon-nets",
     title: "Pigeon Nets",
     heroDescription: "Protect balconies and terraces with custom pigeon nets. Our bird net installation keeps pigeons and other birds out while preserving open views.",
-    description: "Pigeon net installation in Gurugram, Delhi NCR, and Noida. Effective anti pigeon net solutions for balconies, windows, and outdoor areas.",
-    detailedDescription: "Sweta Invisible Grill provides high-quality pigeon net installation for balconies, windows, and residential areas in Gurugram, Delhi NCR, and Noida. Our custom pigeon nets and anti pigeon net systems prevent bird nesting, droppings, and property damage while staying humane and unobtrusive. Trust our bird net installation experts for clean, long-lasting bird control.",
+    description: "Pigeon net installation in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Effective anti pigeon net solutions for balconies, windows, and outdoor areas.",
+    detailedDescription: "Nidhi Bird Service provides high-quality pigeon net installation for balconies, windows, and residential areas in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our custom pigeon nets and anti pigeon net systems prevent bird nesting, droppings, and property damage while staying humane and unobtrusive. Trust our bird net installation experts for clean, long-lasting bird control.",
     category: "bird-protection",
     features: ["Humane Control", "Mess Prevention", "Weather Resistant", "Easy Installation", "Bird Safe", "Long Lasting"],
     benefits: [
@@ -514,8 +513,8 @@ export const servicesData = {
     id: "bird-spikes",
     title: "Bird Spikes",
     heroDescription: "Humane and effective bird deterrent for your property. Stainless steel spikes that discourage perching without harming any bird.",
-    description: "Best bird spikes for ledges, signs, and buildings. Quality, humane, and professionally installed for bird control in Gurugram, Delhi NCR, and Noida.",
-    detailedDescription: "Sweta Invisible Grill is a trusted partner, delivering the best quality bird spikes for ledges, signs, and architectural features in Gurugram, Delhi NCR, and Noida. Our humane, stainless steel bird spikes deter birds from perching and nesting without harm. Trusted for quality, durability, and effective bird control solutions.",
+    description: "Best bird spikes for ledges, signs, and buildings. Quality, humane, and professionally installed for bird control in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
+    detailedDescription: "Nidhi Bird Service is a trusted partner, delivering the best quality bird spikes for ledges, signs, and architectural features in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our humane, stainless steel bird spikes deter birds from perching and nesting without harm. Trusted for quality, durability, and effective bird control solutions.",
     category: "bird-protection",
     features: ["Humane Deterrent", "Easy Installation", "Weather Resistant", "Maintenance Free", "Effective Design", "Long Lasting"],
     benefits: [
@@ -541,8 +540,8 @@ export const servicesData = {
     id: "anti-bird-nets",
     title: "Anti Bird Nets",
     heroDescription: "Comprehensive bird control for multi-species protection. Durable nets that safeguard your property while maintaining a humane approach.",
-    description: "Durable anti-bird nets for comprehensive bird control and protection. Quality, durable, and professionally installed in Gurugram, Delhi NCR, and Noida.",
-    detailedDescription: "Sweta Invisible Grill is a trusted partner, delivering the best quality anti-bird netting systems for comprehensive protection against various bird species in Gurugram, Delhi NCR, and Noida. Our professional-grade nets ensure effective, humane, and long-lasting bird control. Trusted for quality, expert installation, and property protection.",
+    description: "Durable anti-bird nets for comprehensive bird control and protection. Quality, durable, and professionally installed in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
+    detailedDescription: "Nidhi Bird Service is a trusted partner, delivering the best quality anti-bird netting systems for comprehensive protection against various bird species in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our professional-grade nets ensure effective, humane, and long-lasting bird control. Trusted for quality, expert installation, and property protection.",
     category: "bird-protection",
     features: ["Multi Species Protection", "Comprehensive Coverage", "Humane Solution", "Weather Proof", "Easy Installation", "Effective Control"],
     benefits: [
@@ -568,8 +567,8 @@ export const servicesData = {
     id: "pigeon-balcony",
     title: "Pigeon Nets For Balcony",
     heroDescription: "Enjoy your balcony pigeon-free. Custom-fitted nets specifically designed for balcony, combining protection with aesthetic appeal.",
-    description: "Durable pigeon nets for balcony. Quality, custom-fitted, and professionally installed for bird control in Gurugram, Delhi NCR, and Noida.",
-    detailedDescription: "Sweta Invisible Grill is a trusted partner, delivering the best quality custom-fitted pigeon nets for balcony in Gurugram, Delhi NCR, and Noida. Our balcony nets provide effective, aesthetic, and long-lasting bird control. Trusted for quality, expert installation, and property protection.",
+    description: "Durable pigeon nets for balcony. Quality, custom-fitted, and professionally installed for bird control in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
+    detailedDescription: "Nidhi Bird Service is a trusted partner, delivering the best quality custom-fitted pigeon nets for balcony in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our balcony nets provide effective, aesthetic, and long-lasting bird control. Trusted for quality, expert installation, and property protection.",
     category: "bird-protection",
     features: ["Balcony Specific", "Custom Fitting", "Aesthetic Design", "Effective Control", "Easy Maintenance", "Weather Resistant"],
     benefits: [
@@ -595,8 +594,8 @@ export const servicesData = {
     id: "anti-seagull",
     title: "Anti Seagull Nets",
     heroDescription: "Heavy-duty protection against aggressive seagulls. Commercial-grade netting designed for coastal environments and large properties.",
-    description: "Best anti-seagull nets for coastal areas and commercial buildings. Quality, heavy-duty, and professionally installed for bird control in Gurugram, Delhi NCR, and Noida.",
-    detailedDescription: "Sweta Invisible Grill is a trusted partner, delivering the best quality anti-seagull nets for coastal environments and large commercial buildings in Gurugram, Delhi NCR, and Noida. Our robust, marine-grade nets provide effective, long-lasting protection against seagulls. Trusted for quality, expert installation, and property safety.",
+    description: "Best anti-seagull nets for coastal areas and commercial buildings. Quality, heavy-duty, and professionally installed for bird control in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
+    detailedDescription: "Nidhi Bird Service is a trusted partner, delivering the best quality anti-seagull nets for coastal environments and large commercial buildings in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our robust, marine-grade nets provide effective, long-lasting protection against seagulls. Trusted for quality, expert installation, and property safety.",
     category: "bird-protection",
     features: ["Heavy Duty", "Seagull Specific", "Coastal Resistant", "Commercial Grade", "Weather Proof", "Professional Installation"],
     benefits: [
@@ -623,8 +622,8 @@ export const servicesData = {
     id: "all-sports-practice",
     title: "All Sports Practice Nets",
     heroDescription: "Train like a pro in any sport. Multi-purpose practice nets designed for excellence in cricket, football, badminton, and beyond.",
-    description: "Professional sports practice nets for cricket, football, tennis, badminton, volleyball, and more. Quality, durable, and professionally installed for training facilities and homes in Gurugram, Delhi NCR, and Noida.",
-    detailedDescription: "Sweta Invisible Grill is a trusted partner, delivering the best quality multi-purpose sports practice nets for cricket, football, tennis, badminton, volleyball, and other recreational activities in Gurugram, Delhi NCR, and Noida. Our professional-grade nets are designed for intensive training, durability, and safety. Trusted for quality, expert installation, and optimal sports performance.",
+    description: "Professional sports practice nets for cricket, football, tennis, badminton, volleyball, and more. Quality, durable, and professionally installed for training facilities and homes in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
+    detailedDescription: "Nidhi Bird Service is a trusted partner, delivering the best quality multi-purpose sports practice nets for cricket, football, tennis, badminton, volleyball, and other recreational activities in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our professional-grade nets are designed for intensive training, durability, and safety. Trusted for quality, expert installation, and optimal sports performance.",
     category: "sports",
     features: ["Multi Sport Use", "Professional Grade", "Weather Resistant", "Custom Sizes", "Easy Installation", "Durable Material"],
     benefits: [
@@ -650,8 +649,8 @@ export const servicesData = {
     id: "cricket-practice",
     title: "Cricket Practice Nets",
     heroDescription: "Professional cricket nets for training facilities, schools, and homes. Tournament-grade quality for safe, effective batting and bowling practice.",
-    description: "Best cricket nets and cricket practice nets for training facilities, schools, and residential complexes. Quality, durable cricket nets professionally installed in Gurugram, Delhi NCR, and Noida.",
-    detailedDescription: "Sweta Invisible Grill delivers the best quality cricket nets and cricket practice nets for professional training facilities, schools, cricket academies, and residential enthusiasts across Gurugram, Delhi NCR, and Noida. Whether you need cricket nets for batting practice, bowling practice, or a dedicated practice lane, our high-quality nets ensure safe, effective, and long-lasting performance. Trusted for quality cricket nets, expert fitting, and enhanced sports training.",
+    description: "Best cricket nets and cricket practice nets for training facilities, schools, and residential complexes. Quality, durable cricket nets professionally installed in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
+    detailedDescription: "Nidhi Bird Service delivers the best quality cricket nets and cricket practice nets for professional training facilities, schools, cricket academies, and residential enthusiasts across Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Whether you need cricket nets for batting practice, bowling practice, or a dedicated practice lane, our high-quality nets ensure safe, effective, and long-lasting performance. Trusted for quality cricket nets, expert fitting, and enhanced sports training.",
     category: "sports",
     features: ["Best Cricket Nets", "Impact Resistant", "Weather Proof", "Standard Pitch Dimensions", "Easy Setup", "Tournament Quality Cricket Nets"],
     benefits: [
@@ -677,8 +676,8 @@ export const servicesData = {
     id: "terrace-cricket",
     title: "Terrace Cricket Nets & Box Cricket Nets",
     heroDescription: "Cricket turf installation for rooftops and compact spaces. Custom-designed terrace cricket nets and box cricket enclosures for safe home play.",
-    description: "Professional cricket turf installation, terrace cricket nets, and box cricket nets for rooftops, residential, and commercial spaces. Quality, custom-fitted, and professionally installed in Gurugram, Delhi NCR, and Noida.",
-    detailedDescription: "Sweta Invisible Grill delivers the best quality cricket turf installation, terrace cricket nets, and box cricket nets for rooftops, residential terraces, and commercial spaces across Gurugram, Delhi NCR, and Noida. Our cricket turf construction and net solutions create safe, space-efficient cricket enclosures for casual play and professional practice. Whether you need cricket turf installation for a terrace, rooftop box cricket construction, or compact cricket net setup, we provide custom-fitted, professional-grade solutions. Trusted for quality, expert installation, and long-lasting cricket turf and net performance.",
+    description: "Professional cricket turf installation, terrace cricket nets, and box cricket nets for rooftops, residential, and commercial spaces. Quality, custom-fitted, and professionally installed in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur.",
+    detailedDescription: "Nidhi Bird Service delivers the best quality cricket turf installation, terrace cricket nets, and box cricket nets for rooftops, residential terraces, and commercial spaces across Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our cricket turf construction and net solutions create safe, space-efficient cricket enclosures for casual play and professional practice. Whether you need cricket turf installation for a terrace, rooftop box cricket construction, or compact cricket net setup, we provide custom-fitted, professional-grade solutions. Trusted for quality, expert installation, and long-lasting cricket turf and net performance.",
     category: "sports",
     features: [
       "Cricket turf installation for rooftops",
@@ -714,8 +713,8 @@ export const servicesData = {
     id: "shade-nets",
     title: "Shade Nets",
     heroDescription: "Premium shade solutions for outdoor spaces. UV-blocking shade nets that provide comfort, protection, and climate control for terraces, gardens, and commercial areas.",
-    description: "Professional shade net installation in Gurugram, Delhi NCR, and Noida. Quality UV-blocking shade nets for residential and commercial spaces.",
-    detailedDescription: "Sweta Invisible Grill delivers premium shade net installation for terraces, gardens, parking areas, and commercial spaces across Gurugram, Delhi NCR, and Noida. Our UV-stabilized shade nets block 50-90% of harmful sun rays, reduce temperature significantly, and create comfortable outdoor environments. Ideal for protecting plants, reducing cooling costs, and creating weather-protected outdoor living areas. Trusted for quality materials, expert installation, and long-lasting performance.",
+    description: "Professional shade net installation in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Quality UV-blocking shade nets for residential and commercial spaces.",
+    detailedDescription: "Nidhi Bird Service delivers premium shade net installation for terraces, gardens, parking areas, and commercial spaces across Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our UV-stabilized shade nets block 50-90% of harmful sun rays, reduce temperature significantly, and create comfortable outdoor environments. Ideal for protecting plants, reducing cooling costs, and creating weather-protected outdoor living areas. Trusted for quality materials, expert installation, and long-lasting performance.",
     category: "safety-nets",
     features: [
       "UV Blocking (50-90% protection)",
@@ -748,8 +747,8 @@ export const servicesData = {
     id: "swimming-pool",
     title: "Swimming Pool Safety Nets",
     heroDescription: "Professional pool safety nets for family protection. Strong, durable nets that prevent accidental pool entry while maintaining easy access for swimmers.",
-    description: "Swimming pool safety nets installation in Gurugram, Delhi NCR, and Noida. Quality child-safe pool protection with professional installation.",
-    detailedDescription: "Sweta Invisible Grill provides premium swimming pool safety nets for residential and commercial pools across Gurugram, Delhi NCR, and Noida. Our child-safe pool nets prevent accidental entry while allowing water drainage and easy access for intended users. Made from strong, UV-resistant materials, our pool nets meet safety standards and provide reliable protection for families. Trusted for quality, safety certification, and expert installation.",
+    description: "Swimming pool safety nets installation in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Quality child-safe pool protection with professional installation.",
+    detailedDescription: "Nidhi Bird Service provides premium swimming pool safety nets for residential and commercial pools across Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our child-safe pool nets prevent accidental entry while allowing water drainage and easy access for intended users. Made from strong, UV-resistant materials, our pool nets meet safety standards and provide reliable protection for families. Trusted for quality, safety certification, and expert installation.",
     category: "safety-nets",
     features: [
       "Child-Safe Protection",
@@ -782,8 +781,8 @@ export const servicesData = {
     id: "car-parking",
     title: "Car Parking Nets & Shades",
     heroDescription: "Protect your vehicles with professional parking nets and shades. Durable, UV-blocking solutions that safeguard cars from sun damage, bird droppings, and weather.",
-    description: "Professional car parking shade nets and safety nets in Gurugram, Delhi NCR, and Noida. Quality vehicle protection with expert installation.",
-    detailedDescription: "Sweta Invisible Grill delivers premium car parking shade nets and protective nets for residential, commercial, and industrial parking areas across Gurugram, Delhi NCR, and Noida. Our UV-blocking parking shades protect vehicles from sun damage, harsh weather, and bird droppings while providing safe, comfortable parking environments. Ideal for apartment complexes, commercial lots, and car dealerships. Trusted for quality materials, durability, and professional installation.",
+    description: "Professional car parking shade nets and safety nets in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Quality vehicle protection with expert installation.",
+    detailedDescription: "Nidhi Bird Service delivers premium car parking shade nets and protective nets for residential, commercial, and industrial parking areas across Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our UV-blocking parking shades protect vehicles from sun damage, harsh weather, and bird droppings while providing safe, comfortable parking environments. Ideal for apartment complexes, commercial lots, and car dealerships. Trusted for quality materials, durability, and professional installation.",
     category: "safety-nets",
     features: [
       "UV Blocking Shade",
@@ -816,8 +815,8 @@ export const servicesData = {
     id: "monkey-safety",
     title: "Monkey Safety Nets",
     heroDescription: "Protect your home and balcony from monkey intrusions. Humane, effective nets that keep monkeys out while maintaining your view and ventilation.",
-    description: "Monkey safety nets and monkey protection nets in Gurugram, Delhi NCR, and Noida. Quality humane monkey deterrent with professional installation.",
-    detailedDescription: "Sweta Invisible Grill provides premium monkey safety nets for residential balconies and terraces across Gurugram, Delhi NCR, and Noida. Our strong, humane monkey-proof nets prevent property damage, food theft, and potential injuries from monkey intrusions while allowing normal balcony use. Ideal for apartments, villas, and commercial buildings in areas with monkey populations. Made with strong materials and professional installation for maximum effectiveness. Trusted for quality, humane protection, and proven monkey deterrence.",
+    description: "Monkey safety nets and monkey protection nets in Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Quality humane monkey deterrent with professional installation.",
+    detailedDescription: "Nidhi Bird Service provides premium monkey safety nets for residential balconies and terraces across Sohna, South Gurugram, Bhondsi, Damdama, and Badshahpur. Our strong, humane monkey-proof nets prevent property damage, food theft, and potential injuries from monkey intrusions while allowing normal balcony use. Ideal for apartments, villas, and commercial buildings in areas with monkey populations. Made with strong materials and professional installation for maximum effectiveness. Trusted for quality, humane protection, and proven monkey deterrence.",
     category: "safety-nets",
     features: [
       "Humane Monkey Protection",
@@ -1056,7 +1055,7 @@ export const serviceLocationFAQs = {
     },
     {
       question: "How long does installation take in Gurugram?",
-      answer: `Installation typically takes 4-6 hours depending on size and site conditions. Call ${PRIMARY.display} to schedule an inspection.`
+      answer: `Installation typically takes 4-6 hours depending on size and site conditions. Call +91 8603237881 to schedule an inspection.`
     },
     {
       question: "What are the prices for invisible grills in Gurugram?",

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Inter } from "next/font/google";
 import Script from "next/script";
@@ -12,17 +12,17 @@ import WhatsAppPopup from "@/components/WhatsAppPopup";
 
 import { validLocations, locationData } from "@/constants/locations";
 
-const SITE_URL = "https://www.invisiblesafetygrillpatna.com";
+const SITE_URL = "https://www.nidhibirdservice.in";
 
 const SITE_TITLE =
-  "Sweta Invisible Grill – Invisible Grills & Safety Nets in Gurugram";
+  "Nidhi Bird Service – Invisible Grills & Safety Nets in Gurugram";
 
 const SITE_DESCRIPTION =
   "Professional invisible grills, safety nets, balcony protection, pigeon nets and child safety solutions in Gurugram, Delhi NCR and Noida. Quality installation and reliable safety solutions.";
 
-const BUSINESS_NAME = "Sweta Invisible Grill";
-const BUSINESS_PHONE = "+917065953252";
-const BUSINESS_EMAIL = "invisiblesafetygrillpatna@gmail.com";
+const BUSINESS_NAME = "Nidhi Bird Service";
+const BUSINESS_PHONE = "+918603237881";
+const BUSINESS_EMAIL = "mk7810209@gmail.com";
 
 const GOOGLE_ADS_ID = "AW-18468350920";
 const GOOGLE_ANALYTICS_ID = "G-339PTXCP6X";
@@ -73,9 +73,9 @@ export const metadata: Metadata = {
     "invisible grills in Noida",
     "safety nets in Noida",
 
-    "Sweta Invisible Grill",
-    "Sweta invisible grills",
-    "Sweta safety nets",
+    "Nidhi Bird Service",
+    "Nidhi Bird Service",
+    "Nidhi Bird Service safety nets",
 
     "invisible grills",
     "safety nets",

@@ -49,7 +49,7 @@ const GallerySection = ({ showBreadcrumbs = false }: GallerySectionProps) => {
         return "Artificial cricket turf installation and cricket practice nets for sports safety";
       }
 
-      return `${service.title} installation by Sweta Invisible Grill for homes, apartments and commercial spaces`;
+      return `${service.title} installation by Nidhi Bird Service for homes, apartments and commercial spaces`;
     };
 
     Object.values(servicesData).forEach((service) => {
@@ -456,7 +456,7 @@ const GallerySection = ({ showBreadcrumbs = false }: GallerySectionProps) => {
               <div className="relative w-full h-[70vh] md:h-[80vh]">
                 <OptimizedImage
                   src={selectedImage}
-                  alt="Sweta Invisible Grill installation gallery image preview"
+                  alt="Nidhi Bird Service installation gallery image preview"
                   loading="eager"
                   className="object-contain w-full h-full absolute inset-0"
                 />

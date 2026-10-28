@@ -232,7 +232,7 @@ const LocationAboutSection = ({ location }: { location: string }) => {
                   <Shield className="h-4 w-4 md:h-5 md:w-5" />
 
                   <span className="text-sm md:text-base font-semibold uppercase tracking-wide">
-                    Sweta Invisible Grill in {location}
+                    Nidhi Bird Service in {location}
                   </span>
                 </div>
 
@@ -254,7 +254,7 @@ const LocationAboutSection = ({ location }: { location: string }) => {
                   className="text-base md:text-lg lg:text-lg"
                   style={{ color: "#C8D8EE" }}
                 >
-                  Sweta Invisible Grill is your local expert in {location},
+                  Nidhi Bird Service is your local expert in {location},
                   providing professional invisible grills, safety nets,
                   pigeon nets, bird protection and balcony safety solutions
                   for homes, apartments and commercial properties. We focus

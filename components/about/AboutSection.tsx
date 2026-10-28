@@ -206,7 +206,7 @@ const AboutSection = () => {
                   <Shield className="h-4 w-4 md:h-5 md:w-5" />
 
                   <span className="text-sm md:text-base font-semibold uppercase tracking-wide">
-                    About Sweta Invisible Grill
+                    About Nidhi Bird Service
                   </span>
                 </div>
 
@@ -220,16 +220,19 @@ const AboutSection = () => {
                   </span>
                 </h2>
 
-                <p
-                  className="text-base md:text-lg lg:text-lg"
-                  style={{ color: "#C8D8EE" }}
-                >
-                  Sweta Invisible Grill is a trusted provider of professional
-                  invisible grills, safety nets and balcony protection
-                  solutions across Gurugram, Delhi NCR and Noida. We
-                  specialize in premium safety solutions for homes, apartments
-                  and commercial properties.
-                </p>
+                 <p
+  className="text-base md:text-lg lg:text-lg"
+  style={{ color: "#C8D8EE" }}
+>
+  Nidhi Bird Service provides bird control solutions, pigeon nets,
+  bird spikes, invisible grills, balcony safety nets, and bird
+  protection services for homes, apartments, and commercial properties.
+</p>
+
+                  
+ 
+
+              
               </div>
 
               <div className="space-y-2 md:space-y-3 ">
@@ -380,7 +383,7 @@ const AboutSection = () => {
                     className="text-lg md:text-xl font-semibold"
                     style={{ color: "#F0F6FF" }}
                   >
-                    Why Choose Sweta Invisible Grill?
+                    Why Choose Nidhi Bird Service?
                   </h3>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3 text-sm md:text-base">

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { Phone, Mail, Clock, ArrowRight, Shield } from "lucide-react";
-import { PRIMARY, SECONDARY } from "@/constants/contacts";
 import LocationServicesAccordion from "@/components/layout/LocationServicesAccordion";
 import OptimizedImage from "@/components/shared/OptimizedImage";
 import {
@@ -17,6 +16,10 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 
+const BUSINESS_NAME = "Nidhi Bird Service";
+const MOBILE_NUMBER = "+918603237881";
+const DISPLAY_NUMBER = "+91 8603237881";
+
 const Footer = () => {
   return (
     <footer
@@ -26,7 +29,6 @@ const Footer = () => {
         borderTop: "1px solid #1E2A42",
       }}
     >
-      {/* Main Footer Content */}
       <div className="container mx-auto px-4 py-4 md:py-6 lg:py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 items-start gap-8 lg:gap-10 xl:gap-12">
           {/* Company Info */}
@@ -35,7 +37,7 @@ const Footer = () => {
               <div className="inline-flex items-center justify-center rounded-2xl bg-white/10 p-3 shadow-sm ring-1 ring-white/10 w-fit">
                 <OptimizedImage
                   src="/logo.png"
-                  alt="Sweta Invisible Grill - Invisible Grills, Safety Nets and Pigeon Control Solutions"
+                  alt={`${BUSINESS_NAME} - Invisible Grills, Safety Nets and Pigeon Control Solutions`}
                   className="h-[4rem] w-auto object-contain"
                 />
               </div>
@@ -44,7 +46,7 @@ const Footer = () => {
                 className="text-sm md:text-base leading-relaxed mt-0"
                 style={{ color: "#8FAAC8" }}
               >
-                Sweta Invisible Grill provides professional invisible grills,
+                {BUSINESS_NAME} provides professional invisible grills,
                 balcony safety nets, pigeon nets, children safety nets and
                 related safety solutions across Gurugram, Delhi NCR and Noida.
                 We focus on quality materials, careful installation and
@@ -137,45 +139,33 @@ const Footer = () => {
             <div className="space-y-3 md:space-y-4">
               {/* Primary Phone */}
               <a
-                href={PRIMARY.tel}
+                href={`tel:${MOBILE_NUMBER}`}
                 className="flex items-start space-x-3 group min-h-0 transition-colors"
                 style={{ color: "#FF6B42" }}
-                rel="noopener"
+                aria-label={`Call ${BUSINESS_NAME} at ${DISPLAY_NUMBER}`}
               >
                 <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
 
-                <span
-                  className="text-sm md:text-base font-medium"
-                  aria-label="Primary Contact Number"
-                >
-                  {PRIMARY.display}
+                <span className="text-sm md:text-base font-medium">
+                  {DISPLAY_NUMBER}
                 </span>
               </a>
 
-              {/* Secondary Phone */}
+              {/* Secondary Phone - Same updated number */}
               <a
-                href={SECONDARY.tel}
+                href={`tel:${MOBILE_NUMBER}`}
                 className="flex items-start space-x-3 group min-h-0 transition-colors"
                 style={{ color: "#C8D8EE" }}
-                rel="noopener"
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "#FF6B42";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "#C8D8EE";
-                }}
+                aria-label={`Contact ${BUSINESS_NAME}`}
               >
                 <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
 
-                <span
-                  className="text-sm md:text-base font-medium"
-                  aria-label="Secondary Contact Number"
-                >
-                  {SECONDARY.display}
+                <span className="text-sm md:text-base font-medium">
+                  {DISPLAY_NUMBER}
                 </span>
               </a>
 
-              {/* Email */}
+              {/* Email - unchanged */}
               <div className="flex items-start space-x-3">
                 <Mail
                   className="h-4 w-4 mt-0.5 flex-shrink-0"
@@ -183,22 +173,15 @@ const Footer = () => {
                 />
 
                 <a
-                  href="mailto:invisiblesafetygrillpatna@gmail.com"
+                  href="mailto: mk7810209@gmail.com"
                   className="text-sm md:text-base transition-colors min-h-0 relative group"
-                  rel="noopener"
                   style={{ color: "#C8D8EE" }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.color = "#FF6B42";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.color = "#C8D8EE";
-                  }}
                 >
-                  invisiblesafetygrillpatna@gmail.com
+                   mk7810209@gmail.com
                 </a>
               </div>
 
-              {/* Address */}
+              {/* Address - unchanged */}
               <div className="flex items-start space-x-3">
                 <Shield
                   className="h-4 w-4 mt-0.5 flex-shrink-0"
@@ -217,7 +200,7 @@ const Footer = () => {
                 </address>
               </div>
 
-              {/* Business Hours */}
+              {/* Business Hours - unchanged */}
               <div className="flex items-start space-x-3">
                 <Clock
                   className="h-4 w-4 mt-0.5 flex-shrink-0"
@@ -245,7 +228,7 @@ const Footer = () => {
               className="text-xs md:text-sm text-center md:text-left"
               style={{ color: "#8FAAC8" }}
             >
-              © 2026 Sweta Invisible Grill. All rights reserved.
+              © 2026 {BUSINESS_NAME}. All rights reserved.
             </div>
 
             <div className="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6 text-xs md:text-sm">
@@ -253,12 +236,6 @@ const Footer = () => {
                 href="/privacy-policy"
                 className="transition-colors min-h-0"
                 style={{ color: "#C8D8EE" }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "#F0F6FF";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "#C8D8EE";
-                }}
               >
                 Privacy Policy
               </Link>
@@ -267,12 +244,6 @@ const Footer = () => {
                 href="/terms-of-service"
                 className="transition-colors min-h-0"
                 style={{ color: "#C8D8EE" }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "#F0F6FF";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "#C8D8EE";
-                }}
               >
                 Terms of Service
               </Link>
