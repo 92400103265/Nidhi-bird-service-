@@ -40,10 +40,10 @@ import ServiceFAQ from "@/components/services/ServiceFAQ";
 import ServiceCTA from "@/components/services/ServiceCTA";
 import RelatedServices from "@/components/services/RelatedServices";
 
-const BUSINESS_NAME = "Sweta Invisible Grill";
-const BUSINESS_PHONE = "+91 7065953252";
-const BUSINESS_EMAIL = "invisiblesafetygrillpatna@gmail.com";
-const BUSINESS_URL = "https://www.invisiblesafetygrillpatna.com";
+const BUSINESS_NAME = "Nidhi Bird Service";
+const BUSINESS_PHONE = "+91 8603237881";
+const BUSINESS_EMAIL = "mk7810209@gmail.com";
+const BUSINESS_URL = "https://www.nidhibirdservice.in";
 
 const BUSINESS_ADDRESS = {
   streetAddress:
@@ -99,7 +99,7 @@ export async function generateMetadata({
 
   if (!service) {
     return {
-      title: "Service Not Found - Sweta Invisible Grill",
+      title: "Service Not Found - Nidhi Bird Service",
       robots: {
         index: false,
         follow: true,
@@ -178,7 +178,7 @@ export default async function ServiceDetailPage({
         {
           question: "What are Invisible Grills?",
           answer:
-            "Invisible grills are stainless steel cable systems installed on balconies and windows to provide strong protection without blocking your view. Sweta Invisible Grill provides professional installation for homes and apartments.",
+            "Invisible grills are stainless steel cable systems installed on balconies and windows to provide strong protection without blocking your view. Nidhi Bird Service provides professional installation for homes and apartments.",
         },
         {
           question: "Are Invisible Grills Safe?",
@@ -442,7 +442,7 @@ export default async function ServiceDetailPage({
             <div className="absolute inset-0">
               <OptimizedImage
                 src={service.image}
-                alt={`${service.title} installation by Sweta Invisible Grill for homes, balconies and commercial properties in Gurugram, Delhi NCR and Noida`}
+                alt={`${service.title} installation by Nidhi Bird Service for homes, balconies and commercial properties in Gurugram, Delhi NCR and Noida`}
                 className="h-full w-full object-cover"
               />
 
@@ -528,7 +528,7 @@ export default async function ServiceDetailPage({
                     asChild
                   >
                     <a
-                      href="tel:+917065953252"
+                      href="tel:+918603237881"
                       className="flex items-center gap-2"
                     >
                       <Phone className="h-5 w-5" />
@@ -559,7 +559,7 @@ export default async function ServiceDetailPage({
                 </h2>
 
                 <p className="mx-auto mt-4 max-w-2xl text-base text-foreground/80">
-                  Sweta Invisible Grill provides transparent balcony grills, window invisible grills and premium stainless steel grill systems across Gurugram, Delhi NCR and Noida.
+                  Nidhi Bird Service provides transparent balcony grills, window invisible grills and premium stainless steel grill systems across Gurugram, Delhi NCR and Noida.
                 </p>
 
               </div>

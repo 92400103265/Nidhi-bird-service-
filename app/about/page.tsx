@@ -9,21 +9,21 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export const metadata: Metadata = {
   title:
-    "About Sweta Invisible Grill | Invisible Grills & Safety Nets in Gurugram",
+    "About Nidhi Birds Service | Invisible Grills & Safety Nets in Gurugram",
 
   description:
-    "Sweta Invisible Grill provides professional invisible grill, safety net, bird net and balcony safety solutions in Gurugram, Delhi NCR and Noida.",
+    "Nidhi Birds Service provides professional invisible grill, safety net, bird net and balcony safety solutions in Gurugram, Delhi NCR and Noida.",
 
   alternates: {
-    canonical: "https://www.invisiblesafetygrillpatna.com/about/",
+    canonical: "https://nidhibirdservice.in/about/",
   },
 
   keywords: [
     // Brand
-    "Sweta Invisible Grill",
-    "Sweta Invisible Grill Gurugram",
-    "Sweta Invisible Grill Delhi NCR",
-    "Sweta Invisible Grill Noida",
+    "Nidhi Birds Service",
+    "Nidhi Birds Service Gurugram",
+    "Nidhi Birds Service Delhi NCR",
+    "Nidhi Birds Service Noida",
 
     // Main Services
     "invisible grill installation",
@@ -57,8 +57,8 @@ export const metadata: Metadata = {
     "customer focused service",
 
     // About Page
-    "about Sweta Invisible Grill",
-    "why choose Sweta Invisible Grill",
+    "about Nidhi Birds Service",
+    "why choose Nidhi Birds Service",
     "invisible grill experts",
     "safety net experts",
   ],
@@ -73,14 +73,14 @@ export const metadata: Metadata = {
 
   openGraph: {
     title:
-      "About Sweta Invisible Grill | Invisible Grills & Safety Nets",
+      "About Nidhi Birds Service | Invisible Grills & Safety Nets",
 
     description:
-      "Learn more about Sweta Invisible Grill and our professional safety solutions for homes, balconies and properties across Gurugram, Delhi NCR and Noida.",
+      "Learn more about Nidhi Birds Service and our professional safety solutions for homes, balconies and properties across Gurugram, Delhi NCR and Noida.",
 
-    url: "https://www.invisiblesafetygrillpatna.com/about/",
+    url: "https://nidhibirdservice.in/about/",
 
-    siteName: "Sweta Invisible Grill",
+    siteName: "Nidhi Birds Service",
 
     type: "website",
 
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
         url: "/images/hero-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Sweta Invisible Grill - Invisible Grills and Safety Nets",
+        alt: "Nidhi Birds Service - Invisible Grills and Safety Nets",
       },
     ],
   },
@@ -100,26 +100,26 @@ export default function AboutPage() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
 
-    name: "Sweta Invisible Grill",
+    name: "Nidhi Birds Service",
 
     alternateName: [
-      "Sweta Invisible Grill Gurugram",
-      "Sweta Invisible Grill Delhi NCR",
+      "Nidhi Birds Service Gurugram",
+      "Nidhi Birds Service Delhi NCR",
     ],
 
-    url: "https://www.invisiblesafetygrillpatna.com/",
+    url: "https://nidhibirdservice.in/",
 
-    logo: "https://www.invisiblesafetygrillpatna.com/logo.png",
+    logo: "https://nidhibirdservice.in/logo.png",
 
     image:
-      "https://www.invisiblesafetygrillpatna.com/images/hero-image.jpg",
+      "https://nidhibirdservice.in/images/hero-image.jpg",
 
     description:
-      "Sweta Invisible Grill provides professional invisible grill, safety net, bird net, balcony safety net and bird protection solutions in Gurugram, Delhi NCR and Noida.",
+      "Nidhi Birds Service provides professional invisible grill, safety net, bird net, balcony safety net and bird protection solutions in Gurugram, Delhi NCR and Noida.",
 
-    telephone: "+91 7065953252",
+    telephone: "+91 8603237881",
 
-    email: "invisiblesafetygrillpatna@gmail.com",
+    email: "mk7810209@gmail.com",
 
     address: {
       "@type": "PostalAddress",
@@ -148,8 +148,8 @@ export default function AboutPage() {
 
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+91 7065953252",
-      email: "invisiblesafetygrillpatna@gmail.com",
+      telephone: "+91 8603237881",
+      email: "mk7810209@gmail.com",
       contactType: "customer service",
       areaServed: "IN",
       availableLanguage: ["English", "Hindi"],
@@ -183,7 +183,7 @@ export default function AboutPage() {
         >
           <OptimizedImage
             src="/images/hero-image.jpg"
-            alt="Sweta Invisible Grill - Invisible Grills and Safety Nets"
+            alt="Nidhi Birds Service - Invisible Grills and Safety Nets"
             className="absolute inset-0 h-full w-full object-cover"
             loading="eager"
           />
@@ -201,7 +201,7 @@ export default function AboutPage() {
               <h1 className="mb-6 text-4xl font-bold text-white lg:text-6xl">
                 About{" "}
                 <span className="text-gradient-on-dark">
-                  Sweta Invisible Grill
+                  Nidhi Birds Service
                 </span>
               </h1>
 
@@ -228,7 +228,7 @@ export default function AboutPage() {
               </h2>
 
               <p className="text-card-foreground/80">
-                Sweta Invisible Grill provides professional invisible
+                Nidhi Birds Service provides professional invisible
                 grill and safety solutions for homes, apartments,
                 balconies and commercial properties. We focus on
                 providing reliable safety installations while
@@ -275,7 +275,7 @@ export default function AboutPage() {
               </h2>
 
               <p className="text-card-foreground/80">
-                Sweta Invisible Grill provides installation and safety
+                Nidhi Birds Service provides installation and safety
                 solutions in:
               </p>
 
@@ -291,7 +291,7 @@ export default function AboutPage() {
           <Card>
             <CardContent className="space-y-4 p-4 md:p-6">
               <h2 className="text-xl font-bold text-card-foreground md:text-2xl">
-                Contact Sweta Invisible Grill
+                Contact Nidhi Birds Service
               </h2>
 
               <div className="space-y-3 text-card-foreground/80">
@@ -304,20 +304,31 @@ export default function AboutPage() {
                 <p>
                   <strong>Phone:</strong>{" "}
                   <a
-                    href="tel:+917065953252"
+                    href="tel:+918603237881"
                     className="text-primary hover:underline"
                   >
-                    +91 7065953252
+                    +91 8603237881
                   </a>
                 </p>
 
                 <p>
                   <strong>Email:</strong>{" "}
                   <a
-                    href="mailto:invisiblesafetygrillpatna@gmail.com"
+                    href="mailto:mk7810209@gmail.com"
                     className="text-primary hover:underline"
                   >
-                    invisiblesafetygrillpatna@gmail.com
+                    mk7810209@gmail.com
+                  </a>
+                </p>
+                <p>
+                  <strong>WhatsApp:</strong>{" "}
+                  <a
+                    href="https://wa.me/918603237881"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    Chat with Nidhi Birds Service
                   </a>
                 </p>
               </div>

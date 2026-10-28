@@ -24,30 +24,71 @@ import {
    BUSINESS CONTACT DETAILS
 ========================================================= */
 
-const BUSINESS_NAME = "Sweta Invisible Grill";
+const BUSINESS_NAME = "Nidhi Bird Service";
 
-const BUSINESS_PHONE = "+91 7065953252";
+const BUSINESS_PHONE = "+91 8603237881";
 
 const BUSINESS_EMAIL =
-  "invisiblesafetygrillpatna@gmail.com";
+  "mk7810209@gmail.com";
 
 const BUSINESS_ADDRESS =
-  "Rajeev Chowk, near Jain Complex, Hans Enclave, Sector 33, Gurugram, Haryana 122004";
+  "Sohna, Haryana, India";
 
 /* =========================================================
    WEBSITE
 ========================================================= */
 
-const BASE_URL = "https://www.invisiblesafetygrillpatna.com";
+const BASE_URL = "https://nidhibirdservice.in";
+
+/* =========================================================
+   ADDITIONAL SERVICE LOCATION: SOHNA, HARYANA
+   This fallback makes /locations/sohna/ available even if
+   Sohna is not yet present in the shared location constants.
+========================================================= */
+
+const SOHNA_LOCATION = {
+  name: "Sohna",
+  state: "Haryana",
+  areas: [
+    "Sohna",
+    "South Gurugram",
+    "Bhondsi",
+    "Damdama",
+    "Badshahpur",
+  ],
+  // Approximate city-centre coordinates for the map embed.
+  latitude: 28.247,
+  longitude: 77.065,
+};
+
+function getLocationBySlug(slug: string) {
+  const existing = PRIMARY_LOCATIONS.find(
+    (loc) => loc.name.toLowerCase().replace(/\\s+/g, "-") === slug
+      || loc.name.toLowerCase() === slug
+  );
+
+  if (existing) return existing;
+  if (slug === "sohna" || slug === "sohna-haryana") return SOHNA_LOCATION;
+
+  return undefined;
+}
+
 
 /* =========================================================
    STATIC PARAMS
 ========================================================= */
 
 export async function generateStaticParams() {
-  return PRIMARY_LOCATIONS.map((loc) => ({
-    location: loc.name.toLowerCase(),
+  const existingParams = PRIMARY_LOCATIONS.map((loc) => ({
+    location: loc.name.toLowerCase().replace(/\\s+/g, "-"),
   }));
+
+  // Always include Sohna, Haryana.
+  if (!existingParams.some((item) => item.location === "sohna")) {
+    existingParams.push({ location: "sohna" });
+  }
+
+  return existingParams;
 }
 
 /* =========================================================
@@ -69,15 +110,13 @@ export async function generateMetadata({
 }: PageParams): Promise<Metadata> {
   const { location: locName } = await params;
 
-  const normalizedLocation = locName.toLowerCase();
+  const normalizedLocation = locName.toLowerCase().replace(/\\s+/g, "-");
 
-  const matched = PRIMARY_LOCATIONS.find(
-    (l) => l.name.toLowerCase() === normalizedLocation
-  );
+  const matched = getLocationBySlug(normalizedLocation);
 
   if (!matched) {
     return {
-      title: "Location Not Found | Sweta Invisible Grill",
+      title: "Location Not Found | Nidhi Bird Service",
       robots: {
         index: false,
         follow: true,
@@ -85,10 +124,10 @@ export async function generateMetadata({
     };
   }
 
-  const title = `${matched.name} Invisible Grills & Safety Nets | Sweta Invisible Grill`;
+  const title = `${matched.name}, ${matched.state} Invisible Grills & Safety Nets | ${BUSINESS_NAME}`;
 
   const canonicalPath =
-    `/locations/${matched.name.toLowerCase()}/`;
+    `/locations/${normalizedLocation}/`;
 
   const locationMeta = {
     areaServed: matched.areas.join(", "),
@@ -98,11 +137,6 @@ export async function generateMetadata({
 
   return {
     title,
-
-    verification: {
-      google:
-        "P8HUVCb--rZ-IF-X_ZwXQX1FOPvjQI5M0MWRtAwVMfc",
-    },
 
     robots: {
       index: true,
@@ -125,10 +159,10 @@ export async function generateMetadata({
         `${BUSINESS_NAME} - Invisible Grills & Safety Nets in ${matched.name}`,
 
       description:
-        `Professional invisible grills, balcony safety nets, pigeon nets and safety solutions in ${matched.name}. Serving homes, apartments and commercial spaces across ${matched.name}, Delhi NCR and nearby areas.`,
+        `Professional invisible grills, balcony safety nets, pigeon nets and safety solutions in ${matched.name}, ${matched.state}. Serving homes, apartments and commercial spaces in the local service area.`,
 
       url:
-        `${BASE_URL}/locations/${locName.toLowerCase()}/`,
+        `${BASE_URL}/locations/${normalizedLocation}/`,
 
       siteName: BUSINESS_NAME,
 
@@ -152,7 +186,7 @@ export async function generateMetadata({
         `${BUSINESS_NAME} - Invisible Grills & Safety Nets in ${matched.name}`,
 
       description:
-        `Professional invisible grills, safety nets and bird protection solutions in ${matched.name}. Contact Sweta Invisible Grill for installation and consultation.`,
+        `Professional invisible grills, safety nets and bird protection solutions in ${matched.name}, ${matched.state}. Contact Nidhi Bird Service for installation and consultation.`,
 
       images: [
         "/images/invisible-grill-1.jpg",
@@ -184,7 +218,7 @@ export async function generateMetadata({
 
       "invisible grills near me",
       "safety nets near me",
-      "Sweta Invisible Grill",
+      "Nidhi Bird Service",
       "invisible grill installation",
       "balcony safety nets",
       "pigeon net installation",
@@ -219,22 +253,23 @@ export default async function LocationPage({
     notFound();
   }
 
-  const normalizedLocation =
-    locName.toLowerCase() as keyof typeof locationData;
+  const normalizedLocation = locName.toLowerCase().replace(/\\s+/g, "-");
 
-  if (
-    !validLocations.includes(
-      normalizedLocation as any
-    )
-  ) {
+  const sharedLocationKey =
+    normalizedLocation as keyof typeof locationData;
+
+  const matched =
+    normalizedLocation === "sohna" || normalizedLocation === "sohna-haryana"
+      ? SOHNA_LOCATION
+      : validLocations.includes(sharedLocationKey as any)
+        ? locationData[sharedLocationKey]
+        : undefined;
+
+  if (!matched) {
     notFound();
   }
 
-  const matched =
-    locationData[normalizedLocation];
-
-  const locationDisplay =
-    matched.name;
+  const locationDisplay = matched.name;
 
   /* =======================================================
      BUSINESS PHONE
@@ -291,7 +326,7 @@ export default async function LocationPage({
           `${BUSINESS_NAME} - ${locationDisplay}`,
 
         alternateName: [
-          "Sweta Invisible Grill",
+          "Nidhi Bird Service",
           "Invisible Grills",
           "Safety Nets",
         ],
@@ -410,16 +445,13 @@ export default async function LocationPage({
           "@type": "PostalAddress",
 
           streetAddress:
-            "Rajeev Chowk, near Jain Complex, Hans Enclave, Sector 33",
+            "Sohna",
 
           addressLocality:
-            "Gurugram",
+            "Sohna",
 
           addressRegion:
             "Haryana",
-
-          postalCode:
-            "122004",
 
           addressCountry:
             "IN",
@@ -610,7 +642,7 @@ export default async function LocationPage({
                   <p className="border-t border-white/10 pt-4 text-xs text-white/60 md:text-sm">
 
                     Don't see your area?
-                    Contact Sweta Invisible Grill
+                    Contact Nidhi Bird Service
                     for service availability in
                     your location.
 

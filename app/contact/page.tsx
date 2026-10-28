@@ -16,15 +16,16 @@ const ConsultationForm = dynamic(
    BUSINESS CONTACT DETAILS
 ========================================================= */
 
-const BUSINESS_NAME = "Sweta Invisible Grill";
+const BUSINESS_NAME = "Nidhi Birds Service";
 
-const WEBSITE_URL = "https://www.invisiblesafetygrillpatna.com";
+const WEBSITE_URL = "https://nidhibirdservice.in";
 
-const PHONE = "+91 7065953252";
-const PHONE_TEL = "tel:+917065953252";
+const PHONE = "+91 8603237881";
+const PHONE_TEL = "tel:+918603237881";
+const WHATSAPP_LINK = "https://wa.me/918603237881";
 
-const EMAIL = "invisiblesafetygrillpatna@gmail.com";
-const EMAIL_LINK = "mailto:invisiblesafetygrillpatna@gmail.com";
+const EMAIL = "mk7810209@gmail.com";
+const EMAIL_LINK = "mailto:mk7810209@gmail.com";
 
 const ADDRESS =
   "Rajeev Chowk, near Jain Complex, Hans Enclave, Sector 33, Gurugram, Haryana 122004";
@@ -34,14 +35,14 @@ const ADDRESS =
 ========================================================= */
 
 export const metadata: Metadata = {
-  title: "Contact Sweta Invisible Grill | Gurugram",
+  title: "Contact Nidhi Birds Service | Gurugram",
 
   description:
-    "Contact Sweta Invisible Grill for invisible grill and safety net services in Gurugram, Delhi NCR and Noida. Call +91 7065953252 or email us.",
+    "Contact Nidhi Birds Service for invisible grill and safety net services in Gurugram, Delhi NCR and Noida. Call +91 8603237881 or email us.",
 
   keywords: [
-    "Sweta Invisible Grill",
-    "Contact Sweta Invisible Grill",
+    "Nidhi Birds Service",
+    "Contact Nidhi Birds Service",
     "Invisible Grill Gurugram",
     "Invisible Grill Gurgaon",
     "Invisible Grill Delhi NCR",
@@ -65,10 +66,10 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Contact Sweta Invisible Grill",
+    title: "Contact Nidhi Birds Service",
 
     description:
-      "Contact Sweta Invisible Grill for invisible grills, safety nets and balcony safety solutions.",
+      "Contact Nidhi Birds Service for invisible grills, safety nets and balcony safety solutions.",
 
     url: `${WEBSITE_URL}/contact/`,
 
@@ -81,7 +82,7 @@ export const metadata: Metadata = {
         url: "/images/hero-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Sweta Invisible Grill",
+        alt: "Nidhi Birds Service",
       },
     ],
   },
@@ -191,7 +192,7 @@ export default function ContactPage() {
         >
           <OptimizedImage
             src="/images/hero-image.jpg"
-            alt="Contact Sweta Invisible Grill"
+            alt="Contact Nidhi Birds Service"
             className="absolute inset-0 h-full w-full object-cover"
             loading="eager"
           />
@@ -212,7 +213,7 @@ export default function ContactPage() {
               </h1>
 
               <p className="text-xl text-white/90">
-                Contact Sweta Invisible Grill for professional
+                Contact Nidhi Birds Service for professional
                 invisible grill and safety solutions.
               </p>
 
@@ -402,6 +403,15 @@ export default function ContactPage() {
                 >
                   <Phone className="h-4 w-4" />
                   {PHONE}
+                </a>
+
+                <a
+                  href={WHATSAPP_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-green-600 px-6 py-3 font-medium text-green-700 transition-colors hover:bg-green-50"
+                >
+                  WhatsApp Us
                 </a>
 
               </CardContent>

@@ -3,12 +3,12 @@ import { Metadata } from 'next';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Sweta Invisible Grill',
+  title: 'Privacy Policy | Nidhi Bird Service',
   description:
-    'Privacy Policy for Sweta Invisible Grill - Learn how we protect your personal information and data.',
+    'Privacy Policy for Nidhi Bird Service - Learn how we protect your personal information and data.',
   alternates: {
     canonical:
-      'https://www.invisiblesafetygrillpatna.com/privacy-policy/',
+      'https://www.nidhibirdservice.in/privacy-policy/',
   },
   robots: 'index, follow',
 };
@@ -26,11 +26,11 @@ export default function PrivacyPolicy() {
             </h1>
 
             <p className="text-gray-300 text-lg">
-              Sweta Invisible Grill
+              Nidhi Bird Service
             </p>
 
             <p className="text-gray-300 text-lg">
-              Last updated: September 2026
+              Last updated: October 2026
             </p>
           </div>
 
@@ -44,7 +44,7 @@ export default function PrivacyPolicy() {
               </h2>
 
               <p>
-                Sweta Invisible Grill (&quot;we,&quot; &quot;us,&quot;
+                Nidhi Bird Service (&quot;we,&quot; &quot;us,&quot;
                 &quot;our,&quot; or &quot;Company&quot;) is committed to
                 protecting your privacy. This Privacy Policy explains how we
                 collect, use, disclose, and otherwise handle your personal
@@ -313,23 +313,22 @@ export default function PrivacyPolicy() {
 
                 <p>
                   <strong>Business:</strong>{' '}
-                  Sweta Invisible Grill
+                  Nidhi Bird Service
                 </p>
 
                 <p>
                   <strong>Email:</strong>{' '}
-                  invisiblesafetygrillpatna@gmail.com
+                  mk7810209@gmail.com
                 </p>
 
                 <p>
                   <strong>Phone:</strong>{' '}
-                  +91 7065953252
+                  +91 8603237881
                 </p>
 
                 <p>
                   <strong>Address:</strong>{' '}
-                  Rajeev Chowk, near Jain Complex, Hans Enclave,
-                  Sector 33, Gurugram, Haryana 122004, India
+                  Sohna, Haryana, India
                 </p>
 
               </div>

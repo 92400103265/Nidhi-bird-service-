@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 
 import { servicesData, resolveServiceSlug } from "@/data/servicesData";
-import { getCanonicalUrl } from "@/lib/canonical-url";
 import {
   generateBreadcrumbSchema,
   clampSnippet,
@@ -73,6 +72,19 @@ function CheckCircle2({ className = "" }: IconProps) {
 
 import { locationData, validLocations } from "@/constants/locations";
 
+// Fallback profile for the primary business location. Coordinates are approximate
+// Sohna town-centre coordinates; replace them if you have verified business coordinates.
+const SOHNA_LOCATION = {
+  areas: ["Sohna", "South Gurugram", "Bhondsi", "Damdama", "Badshahpur"],
+  primaryAreas: ["Sohna", "Bhondsi", "Damdama"],
+  latitude: 28.247,
+  longitude: 77.065,
+};
+
+const isSohnaLocation = (location: string) =>
+  location === "sohna" || location === "sohna-haryana";
+
+
 export async function generateMetadata({
   params,
 }: {
@@ -86,15 +98,17 @@ export async function generateMetadata({
   const normalizedLocation =
     location.toLowerCase() as keyof typeof locationData;
 
-  if (!service || !validLocations.includes(normalizedLocation)) {
+  const isSohna = isSohnaLocation(normalizedLocation);
+
+  if (!service || (!validLocations.includes(normalizedLocation) && !isSohna)) {
     return {};
   }
 
-  const locationFormatted =
-    normalizedLocation.charAt(0).toUpperCase() +
-    normalizedLocation.slice(1);
+  const locationFormatted = isSohna
+    ? "Sohna, Haryana"
+    : normalizedLocation.charAt(0).toUpperCase() + normalizedLocation.slice(1);
 
-  const locationInfo = locationData[normalizedLocation];
+  const locationInfo = isSohna ? SOHNA_LOCATION : locationData[normalizedLocation];
 
   const areas = locationInfo.areas.join(", ");
 
@@ -133,9 +147,7 @@ export async function generateMetadata({
     keywords: locationKeywords.join(", "),
 
     alternates: {
-      canonical: getCanonicalUrl(
-        `/services/${canonicalSlug}/${normalizedLocation}`
-      ),
+      canonical: `https://www.nidhibirdservice.in/services/${canonicalSlug}/${normalizedLocation}/`,
     },
 
     openGraph: {
@@ -145,9 +157,9 @@ export async function generateMetadata({
 
       description: socialDescription,
 
-      url: `https://www.invisiblesafetygrillpatna.com/services/${canonicalSlug}/${normalizedLocation}/`,
+      url: `https://www.nidhibirdservice.in/services/${canonicalSlug}/${normalizedLocation}/`,
 
-      siteName: "Sweta Invisible Grill",
+      siteName: "Nidhi Bird Service",
 
       images: [
         {
@@ -172,11 +184,6 @@ export async function generateMetadata({
       images: [service.image],
     },
 
-    verification: {
-      google:
-        "P8HUVCb--rZ-IF-X_ZwXQX1FOPvjQI5M0MWRtAwVMfc",
-    },
-
     robots: {
       index: true,
       follow: true,
@@ -188,10 +195,14 @@ export function generateStaticParams(): {
   slug: string;
   location: string;
 }[] {
+  const locations = Array.from(
+    new Set([...validLocations.map((location) => location.toLowerCase()), "sohna"])
+  );
+
   return Object.keys(servicesData).flatMap((slug) =>
-    validLocations.map((location) => ({
+    locations.map((location) => ({
       slug,
-      location: location.toLowerCase(),
+      location,
     }))
   );
 }
@@ -214,21 +225,22 @@ export default async function ServiceLocationPage({
   const normalizedLocation =
     location.toLowerCase() as keyof typeof locationData;
 
+  const isSohna = isSohnaLocation(normalizedLocation);
+
   if (
     !service ||
-    !validLocations.includes(normalizedLocation)
+    (!validLocations.includes(normalizedLocation) && !isSohna)
   ) {
     notFound();
   }
 
-  const locationFormatted =
-    normalizedLocation.charAt(0).toUpperCase() +
-    normalizedLocation.slice(1);
+  const locationFormatted = isSohna
+    ? "Sohna, Haryana"
+    : normalizedLocation.charAt(0).toUpperCase() + normalizedLocation.slice(1);
 
-  const locationInfo =
-    locationData[
-      normalizedLocation as keyof typeof locationData
-    ];
+  const locationInfo = isSohna
+    ? SOHNA_LOCATION
+    : locationData[normalizedLocation as keyof typeof locationData];
 
   const cityProfile =
     LOCATION_PROFILES[
@@ -263,7 +275,7 @@ export default async function ServiceLocationPage({
   );
 
   const baseUrl =
-    "https://www.invisiblesafetygrillpatna.com";
+    "https://www.nidhibirdservice.in";
 
   const currentDate = new Date().toISOString();
 
@@ -296,23 +308,20 @@ export default async function ServiceLocationPage({
           height: 675,
         },
 
-        telephone: "+91 7065953252",
+        telephone: "+91 8603237881",
 
-        email: "invisiblesafetygrillpatna@gmail.com",
+        email: "mk7810209@gmail.com",
 
         priceRange: "₹₹₹",
 
         address: {
           "@type": "PostalAddress",
 
-          streetAddress:
-            "Rajeev Chowk, near Jain Complex, Hans Enclave, Sector 33",
-
-          addressLocality: "Gurugram",
+          addressLocality: "Sohna",
 
           addressRegion: "Haryana",
 
-          postalCode: "122004",
+          
 
           addressCountry: "IN",
         },
@@ -349,11 +358,11 @@ export default async function ServiceLocationPage({
 
           "@id": `${baseUrl}#organization`,
 
-          name: "Sweta Invisible Grill",
+          name: "Nidhi Bird Service",
 
-          telephone: "+91 7065953252",
+          telephone: "+91 8603237881",
 
-          email: "invisiblesafetygrillpatna@gmail.com",
+          email: "mk7810209@gmail.com",
 
           image: {
             "@type": "ImageObject",
@@ -365,14 +374,11 @@ export default async function ServiceLocationPage({
           address: {
             "@type": "PostalAddress",
 
-            streetAddress:
-              "Rajeev Chowk, near Jain Complex, Hans Enclave, Sector 33",
-
-            addressLocality: "Gurugram",
+            addressLocality: "Sohna",
 
             addressRegion: "Haryana",
 
-            postalCode: "122004",
+            
 
             addressCountry: "IN",
           },
@@ -661,7 +667,7 @@ export default async function ServiceLocationPage({
                 </Link>
 
                 <a
-                  href="tel:+917065953252"
+                  href="tel:+918603237881"
                   className="
                     inline-flex
                     h-11
@@ -1042,21 +1048,19 @@ export default async function ServiceLocationPage({
               <div className="mb-6 text-center text-sm text-white/70">
 
                 <p>
-                  Sweta Invisible Grill
+                  Nidhi Bird Service
                 </p>
 
                 <p>
-                  Rajeev Chowk, near Jain Complex,
-                  Hans Enclave, Sector 33,
-                  Gurugram, Haryana 122004
+                  Sohna, Haryana, India
                 </p>
 
                 <p>
-                  +91 7065953252
+                  +91 8603237881
                 </p>
 
                 <p>
-                  invisiblesafetygrillpatna@gmail.com
+                  mk7810209@gmail.com
                 </p>
 
               </div>
@@ -1088,7 +1092,7 @@ export default async function ServiceLocationPage({
                 </Link>
 
                 <a
-                  href="tel:+917065953252"
+                  href="tel:+918603237881"
                   className="
                     inline-flex
                     h-11

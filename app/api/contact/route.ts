@@ -1,7 +1,12 @@
-import { NextResponse } from "next/server";
+ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 export const runtime = "nodejs";
+
+const BUSINESS_NAME = "Nidhi Birds Service";
+const BUSINESS_EMAIL = "mk7810209@gmail.com";
+const BUSINESS_PHONE = "+91 8603237881";
+const WEBSITE_URL = "https://nidhibirdservice.in";
 
 export async function POST(request: Request) {
   try {
@@ -11,7 +16,7 @@ export async function POST(request: Request) {
     const phone = String(body.phone || "").trim();
     const location = String(body.location || "").trim();
 
-    // Validate form
+    // Validate contact form
     if (!name || !phone || !location) {
       return NextResponse.json(
         {
@@ -22,8 +27,11 @@ export async function POST(request: Request) {
       );
     }
 
-    // Check environment variables
-    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+    // Check Gmail configuration
+    const gmailUser = process.env.GMAIL_USER;
+    const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
+
+    if (!gmailUser || !gmailAppPassword) {
       console.error("Gmail environment variables are missing.");
 
       return NextResponse.json(
@@ -35,111 +43,124 @@ export async function POST(request: Request) {
       );
     }
 
-    // Gmail transporter
+    // Configure Gmail SMTP
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_APP_PASSWORD,
+        user: gmailUser,
+        pass: gmailAppPassword,
       },
     });
 
-    // Send email
+    // Escape user-submitted values before inserting them into HTML
+    const safeName = escapeHtml(name);
+    const safePhone = escapeHtml(phone);
+    const safeLocation = escapeHtml(location);
+
+    // Send lead notification email
     await transporter.sendMail({
-      from: `"Sweta Invisible Grill Website" <${process.env.GMAIL_USER}>`,
-
-      to:
-        process.env.CONTACT_RECEIVER ||
-        "invisiblesafetygrillpatna@gmail.com",
-
+      from: `"${BUSINESS_NAME} Website" <${gmailUser}>`,
+      to: process.env.CONTACT_RECEIVER || BUSINESS_EMAIL,
+      replyTo: gmailUser,
       subject: `New Website Lead - ${name}`,
 
       text: `
-New Website Lead
+New Website Lead - ${BUSINESS_NAME}
 
 Name: ${name}
 Phone: ${phone}
 Location: ${location}
 
-Website:
-https://www.invisiblesafetygrillpatna.com
+Business Phone: ${BUSINESS_PHONE}
+Business Email: ${BUSINESS_EMAIL}
+Website: ${WEBSITE_URL}
       `,
 
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 650px; margin: auto;">
+        <div style="font-family: Arial, sans-serif; max-width: 650px; margin: auto; color: #222;">
 
-          <h2 style="color: #1d4ed8;">
+          <h2 style="color: #ea580c;">
             New Website Lead
           </h2>
 
           <p>
-            Someone submitted the contact form on your website.
+            Someone submitted the contact form on the
+            ${BUSINESS_NAME} website.
           </p>
 
-          <table
-            style="
-              width: 100%;
-              border-collapse: collapse;
-              margin-top: 20px;
-            "
-          >
-
+          <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
             <tr>
               <td style="padding: 12px; border: 1px solid #ddd;">
-                <strong>Name</strong>
+                <strong>Customer Name</strong>
               </td>
-
               <td style="padding: 12px; border: 1px solid #ddd;">
-                ${escapeHtml(name)}
+                ${safeName}
               </td>
             </tr>
 
             <tr>
               <td style="padding: 12px; border: 1px solid #ddd;">
-                <strong>Phone</strong>
+                <strong>Customer Phone</strong>
               </td>
-
               <td style="padding: 12px; border: 1px solid #ddd;">
-                ${escapeHtml(phone)}
+                ${safePhone}
               </td>
             </tr>
 
             <tr>
               <td style="padding: 12px; border: 1px solid #ddd;">
-                <strong>Location</strong>
+                <strong>Customer Location</strong>
               </td>
-
               <td style="padding: 12px; border: 1px solid #ddd;">
-                ${escapeHtml(location)}
+                ${safeLocation}
               </td>
             </tr>
-
           </table>
 
-          <p style="margin-top: 20px;">
+          <h3 style="margin-top: 24px;">Business Contact Details</h3>
+
+          <p>
+            <strong>Business:</strong> ${BUSINESS_NAME}
+          </p>
+
+          <p>
+            <strong>Phone:</strong>
+            <a href="tel:+918603237881">${BUSINESS_PHONE}</a>
+          </p>
+
+          <p>
+            <strong>WhatsApp:</strong>
+            <a href="https://wa.me/918603237881">Chat on WhatsApp</a>
+          </p>
+
+          <p>
+            <strong>Email:</strong>
+            <a href="mailto:${BUSINESS_EMAIL}">${BUSINESS_EMAIL}</a>
+          </p>
+
+          <p>
             <strong>Website:</strong>
-            <a href="https://www.invisiblesafetygrillpatna.com">
-              invisiblesafetygrillpatna.com
-            </a>
+            <a href="${WEBSITE_URL}">${WEBSITE_URL}</a>
           </p>
 
         </div>
       `,
     });
 
-    return NextResponse.json({
-      success: true,
-      message: "Lead email sent successfully.",
-    });
-
+    return NextResponse.json(
+      {
+        success: true,
+        message: "Your message has been sent successfully.",
+      },
+      { status: 200 }
+    );
   } catch (error) {
-
     console.error("Contact email error:", error);
 
     return NextResponse.json(
       {
         success: false,
-        message: "Unable to send email.",
+        message: "Unable to send your message. Please try again later.",
       },
       { status: 500 }
     );

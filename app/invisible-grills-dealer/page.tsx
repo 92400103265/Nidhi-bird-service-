@@ -36,20 +36,20 @@ import { generateServiceSchema } from "@/lib/service-schema";
    BUSINESS DETAILS
 ========================================================= */
 
-const BUSINESS_NAME = "Sweta Invisible Grill";
+const BUSINESS_NAME = "Nidhi Bird Service";
 
 const WEBSITE_URL =
-  "https://www.invisiblesafetygrillpatna.com";
+  "https://nidhibirdservice.in";
 
-const PHONE = "+91 7065953252";
+const PHONE = "+91 8603237881";
 
-const PHONE_TEL = "tel:+917065953252";
+const PHONE_TEL = "tel:+918603237881";
 
 const EMAIL =
-  "invisiblesafetygrillpatna@gmail.com";
+  "mk7810209@gmail.com";
 
 const EMAIL_LINK =
-  "mailto:invisiblesafetygrillpatna@gmail.com";
+  "mailto:mk7810209@gmail.com";
 
 const ADDRESS =
   "Rajeev Chowk, near Jain Complex, Hans Enclave, Sector 33, Gurugram, Haryana 122004";
@@ -60,10 +60,10 @@ const ADDRESS =
 
 export const metadata: Metadata = {
   title:
-    "Invisible Grills Dealership | Sweta Invisible Grill",
+    "Invisible Grills Dealership | Nidhi Bird Service",
 
   description:
-    "Invisible grill dealership and wholesale opportunities with Sweta Invisible Grill in Gurugram, Delhi NCR and Noida.",
+    "Invisible grill dealership and wholesale opportunities with Nidhi Bird Service in Gurugram, Delhi NCR and Noida.",
 
   robots: {
     index: true,
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
   },
 
   keywords: [
-    "Sweta Invisible Grill",
+    "Nidhi Bird Service",
     "Invisible Grills Dealership",
     "Invisible Grill Dealer",
     "Invisible Grill Distributor",
@@ -96,10 +96,10 @@ export const metadata: Metadata = {
 
   openGraph: {
     title:
-      "Invisible Grills Dealership | Sweta Invisible Grill",
+      "Invisible Grills Dealership | Nidhi Bird Service",
 
     description:
-      "Explore invisible grill dealership and wholesale opportunities with Sweta Invisible Grill.",
+      "Explore invisible grill dealership and wholesale opportunities with Nidhi Bird Service.",
 
     url:
       `${WEBSITE_URL}/invisible-grills-dealer/`,
@@ -113,7 +113,7 @@ export const metadata: Metadata = {
         url: "/images/invisible-grill-1.jpg",
         width: 1200,
         height: 630,
-        alt: "Sweta Invisible Grill Dealership",
+        alt: "Nidhi Bird Service Dealership",
       },
     ],
   },
@@ -280,7 +280,7 @@ const dealerFAQs = [
       "How can I apply for dealership?",
 
     answer:
-      "Contact Sweta Invisible Grill using +91 7065953252 or invisiblesafetygrillpatna@gmail.com to discuss dealership opportunities.",
+      "Contact Nidhi Bird Service using +91 8603237881 or mk7810209@gmail.com to discuss dealership opportunities.",
   },
 ];
 
@@ -339,7 +339,7 @@ export default function InvisibleGrillsDealerPage() {
       "Invisible Grills Dealer & Wholesale",
 
     description:
-      "Invisible grill dealership and wholesale opportunities from Sweta Invisible Grill.",
+      "Invisible grill dealership and wholesale opportunities from Nidhi Bird Service.",
 
     image:
       "/images/invisible-grill-1.jpg",
@@ -503,7 +503,7 @@ export default function InvisibleGrillsDealerPage() {
 
               <OptimizedImage
                 src="/images/invisible-grill-dealer.jpg"
-                alt="Sweta Invisible Grill Dealership"
+                alt="Nidhi Bird Service Dealership"
                 className="h-full w-full object-cover"
                 loading="eager"
                 priority
@@ -550,7 +550,7 @@ export default function InvisibleGrillsDealerPage() {
 
                 <p className="mb-8 text-lg text-white/80 md:text-xl">
 
-                  Partner with Sweta Invisible Grill for
+                  Partner with Nidhi Bird Service for
                   invisible grill dealership and wholesale
                   opportunities in Gurugram, Delhi NCR and
                   Noida.
@@ -633,7 +633,7 @@ export default function InvisibleGrillsDealerPage() {
                   Why Partner With{" "}
 
                   <span className="text-accent">
-                    Sweta Invisible Grill
+                    Nidhi Bird Service
                   </span>
                   ?
 
@@ -850,7 +850,7 @@ export default function InvisibleGrillsDealerPage() {
               </h2>
 
               <p className="mb-6 text-lg text-white/80">
-                Contact Sweta Invisible Grill to discuss
+                Contact Nidhi Bird Service to discuss
                 dealership opportunities.
               </p>
 
