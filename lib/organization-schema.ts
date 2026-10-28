@@ -5,37 +5,42 @@ import {
   PRIMARY_LOCATION,
 } from "@/constants/locations";
 
-export const baseUrl = "https://www.invisiblesafetygrillpatna.com";
+// Website configuration
+export const baseUrl = "https://www.nidhibirdservice.in";
+
+const BUSINESS_NAME = "Nidhi Bird Service";
 
 export const generateOrganizationSchema = () => ({
   "@context": "https://schema.org",
   "@type": ["Organization", "LocalBusiness"],
-  "@id": `${baseUrl}#organization`,
+  "@id": `${baseUrl}/#organization`,
 
-  name: "Sweta Invisible Grill",
-  alternateName: "Sweta Invisible Grill - Invisible Grills & Safety Nets",
+  name: BUSINESS_NAME,
+  alternateName: "Nidhi Bird Service - Invisible Grills & Safety Nets",
 
   description:
     "Professional invisible grill, balcony safety net, pigeon net, child safety and bird protection installation services across Gurugram, Delhi NCR and Noida.",
 
-  url: baseUrl,
+  url: `${baseUrl}/`,
 
   logo: {
     "@type": "ImageObject",
     url: `${baseUrl}/logo.png`,
-    width: "180",
-    height: "180",
-    caption: "Sweta Invisible Grill Logo",
+    width: 180,
+    height: 180,
+    caption: `${BUSINESS_NAME} Logo`,
   },
 
   image: [
     {
       "@type": "ImageObject",
       url: `${baseUrl}/logo.png`,
-      width: "180",
-      height: "180",
+      width: 180,
+      height: 180,
     },
   ],
+
+  telephone: PRIMARY.phone,
 
   contactPoint: [
     {
@@ -72,8 +77,8 @@ export const generateOrganizationSchema = () => ({
 
   geo: {
     "@type": "GeoCoordinates",
-    latitude: PRIMARY_LOCATION.latitude.toString(),
-    longitude: PRIMARY_LOCATION.longitude.toString(),
+    latitude: PRIMARY_LOCATION.latitude,
+    longitude: PRIMARY_LOCATION.longitude,
   },
 
   areaServed: validLocations.map((slug) => ({
@@ -85,8 +90,8 @@ export const generateOrganizationSchema = () => ({
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: locationData[slug].latitude.toString(),
-      longitude: locationData[slug].longitude.toString(),
+      latitude: locationData[slug].latitude,
+      longitude: locationData[slug].longitude,
     },
   })),
 
@@ -94,5 +99,6 @@ export const generateOrganizationSchema = () => ({
 
   knowsLanguage: ["en", "hi"],
 
-  slogan: "Safety, Quality & Style with Nidhi Bird Service Invisible Grills and Safety Nets",
+  slogan:
+    "Safety, Quality & Style with Nidhi Bird Service Invisible Grills and Safety Nets",
 });

@@ -1,6 +1,30 @@
-import { baseUrl, generateOrganizationSchema } from "./organization-schema";
+import {
+  baseUrl,
+  generateOrganizationSchema,
+} from "./organization-schema";
+
 import { PRIMARY } from "@/constants/contacts";
-import { validLocations, locationData } from "@/constants/locations";
+
+import {
+  validLocations,
+  locationData,
+} from "@/constants/locations";
+
+// ============================================================
+// BUSINESS CONFIGURATION
+// ============================================================
+
+const BUSINESS_NAME = "Nidhi Bird Service";
+
+const BUSINESS_PHONE = PRIMARY.phone;
+
+const BUSINESS_URL = "https://www.nidhibirdservice.in";
+
+const BUSINESS_WHATSAPP = "https://wa.me/918603237881";
+
+// ============================================================
+// SERVICE SCHEMA GENERATOR
+// ============================================================
 
 export function generateServiceSchema(params: {
   serviceName: string;
@@ -8,7 +32,10 @@ export function generateServiceSchema(params: {
   image: string;
   slug: string;
   category?: string;
-  specifications?: Array<{ label: string; value: string }>;
+  specifications?: Array<{
+    label: string;
+    value: string;
+  }>;
 }) {
   const {
     serviceName,
@@ -21,193 +48,177 @@ export function generateServiceSchema(params: {
 
   const organizationSchema = generateOrganizationSchema();
 
-  // Product schema representing the physical product
+  // Build absolute URLs safely.
+  const normalizedImage = image.startsWith("http")
+    ? image
+    : `${baseUrl}/${image.replace(/^\/+/, "")}`;
+
+  const serviceUrl =
+    `${BUSINESS_URL}/services/${slug.replace(/^\/+|\/+$/g, "")}/`;
+
+  // Extract optional product details from specifications.
+  const model = specifications.find((spec) =>
+    spec.label.toLowerCase().includes("model"),
+  )?.value;
+
+  const material = specifications.find((spec) =>
+    spec.label.toLowerCase().includes("material"),
+  )?.value;
+
+  const additionalProperties = specifications.map((spec) => ({
+    "@type": "PropertyValue",
+    name: spec.label,
+    value: spec.value,
+  }));
+
+  // ==========================================================
+  // PRODUCT SCHEMA
+  // Use Product only when the page genuinely describes a
+  // purchasable physical product. The Service schema below
+  // represents the installation service.
+  // ==========================================================
+
   const productSchema = {
-    "@type": ["Product", "Service"],
+    "@type": "Product",
+    "@id": `${serviceUrl}#product`,
+
     name: serviceName,
-    description: description,
+
+    description,
+
+    image: normalizedImage,
+
+    url: serviceUrl,
+
+    sku: `NBS-${slug.toUpperCase().replace(/[^A-Z0-9-]/g, "-")}`,
+
     brand: {
       "@type": "Brand",
-      "@id": `${baseUrl}#organization`,
-      name: "Sweta Invisible Grill",
+      name: BUSINESS_NAME,
     },
+
     manufacturer: {
       "@type": "Organization",
-      "@id": `${baseUrl}#organization`,
-      name: "Sweta Invisible Grill",
+      "@id": `${BUSINESS_URL}/#organization`,
+      name: BUSINESS_NAME,
     },
-    image: `${baseUrl}${image}`,
-    sku: `SWETA-${slug.toUpperCase()}`,
-    model:
-      specifications.find((s) =>
-        s.label.toLowerCase().includes("model"),
-      )?.value || "Premium",
+
     category:
       category === "bird-protection"
-        ? "Pest Control > Bird Control"
-        : "Home Safety & Security > Safety Equipment",
-    productID: `SWETA-PROD-${slug.toUpperCase()}`,
-    material: specifications.find((s) =>
-      s.label.toLowerCase().includes("material"),
-    )?.value,
-    url: `${baseUrl}/services/${slug}`,
-    additionalProperty: specifications.map((spec) => ({
-      "@type": "PropertyValue",
-      name: spec.label,
-      value: spec.value,
-    })),
-    offers: {
-      "@type": "AggregateOffer",
-      priceCurrency: "INR",
-      lowPrice: "110",
-      highPrice: "150",
-      offerCount: "3",
-      priceValidUntil: new Date(
-        new Date().setFullYear(new Date().getFullYear() + 1),
-      ).toISOString(),
-      itemCondition: "https://schema.org/NewCondition",
-      availability: "https://schema.org/InStock",
-      seller: organizationSchema,
-      areaServed: ["Gurugram", "Delhi NCR", "Noida"],
-      priceSpecification: {
-        "@type": "PriceSpecification",
-        price: "110",
-        priceCurrency: "INR",
-        unitText: "per square foot",
-        validFrom: new Date().toISOString(),
-        validThrough: new Date(
-          new Date().setFullYear(new Date().getFullYear() + 1),
-        ).toISOString(),
-      },
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      bestRating: "5",
-      worstRating: "1",
-      ratingCount: "1126",
-      reviewCount: "1126",
-    },
+        ? "Bird Protection and Control"
+        : "Home Safety and Security Equipment",
+
+    ...(model ? { model } : {}),
+
+    ...(material ? { material } : {}),
+
+    ...(additionalProperties.length > 0
+      ? { additionalProperty: additionalProperties }
+      : {}),
   };
 
-  const currentDate = new Date().toISOString();
+  // ==========================================================
+  // INSTALLATION SERVICE SCHEMA
+  // ==========================================================
 
-  const oneYearFromNow = new Date(
-    new Date().setFullYear(new Date().getFullYear() + 1),
-  ).toISOString();
-
-  // Service schema representing the installation service
   const serviceSchema = {
-    "@type": ["Service", "HomeAndConstructionBusiness"],
+    "@type": "Service",
+
+    "@id": `${serviceUrl}#service`,
+
     name: `${serviceName} Installation Service`,
-    description: `Professional ${serviceName} installation by Nidhi Bird Service, ensuring safety, quality, and customer satisfaction.`,
-    image: `${baseUrl}${image}`,
-    telephone: PRIMARY.phone,
-    priceRange: "₹₹₹",
-    address: organizationSchema.address,
-    serviceType: ["Installation Service", "Home Safety", serviceName],
-    provider: organizationSchema,
-    category: "Home Safety & Security Equipment",
 
-    // Derived from constants/locations.ts
-    "areaServed": validLocations.map((slug) => ({
-      "@type": "City",
-      name: locationData[slug].name,
-      containedInPlace: {
-        "@type": "State",
-        name: locationData[slug].state,
-      },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: locationData[slug].latitude.toString(),
-        longitude: locationData[slug].longitude.toString(),
-      },
-    })),
+    serviceType: [
+      serviceName,
+      "Installation Service",
+      "Home Safety",
+    ],
 
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Sweta Invisible Grill Installation Services",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Free Site Inspection",
-            description: `Professional ${serviceName} consultation and measurement`,
-          },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            price: "0",
-            priceCurrency: "INR",
-            description: "Free site inspection and consultation",
-            validFrom: currentDate,
-            validThrough: oneYearFromNow,
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: `Standard ${serviceName} Installation`,
-            description:
-              "Professional installation with quality materials and service support",
-          },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            price: "110",
-            priceCurrency: "INR",
-            unitText: "per square foot",
-            validFrom: currentDate,
-            validThrough: oneYearFromNow,
-          },
-          warranty: {
-            "@type": "WarrantyPromise",
-            durationOfWarranty: "P10Y",
-            warrantyScope: "Labor and Materials",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: `Premium ${serviceName} Installation`,
-            description:
-              "Premium installation with quality materials, warranty, and customer support",
-          },
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            price: "150",
-            priceCurrency: "INR",
-            unitText: "per square foot",
-            validFrom: currentDate,
-            validThrough: oneYearFromNow,
-          },
-          warranty: {
-            "@type": "WarrantyPromise",
-            durationOfWarranty: "P10Y",
-            warrantyScope: "Labor and Materials",
-          },
-        },
-      ],
+    description:
+      `Professional ${serviceName} installation by ${BUSINESS_NAME}. Contact us for service details and a quotation.`,
+
+    url: serviceUrl,
+
+    image: normalizedImage,
+
+    telephone: BUSINESS_PHONE,
+
+    provider: {
+      "@type": "Organization",
+      "@id": `${BUSINESS_URL}/#organization`,
+      name: BUSINESS_NAME,
+      url: `${BUSINESS_URL}/`,
+      telephone: BUSINESS_PHONE,
     },
 
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      ratingCount: "1126",
-      bestRating: "5",
-      worstRating: "1",
-      reviewCount: "1000",
-    },
+    areaServed: validLocations.map((locationSlug) => {
+      const location = locationData[locationSlug];
+
+      return {
+        "@type": "City",
+        name: location.name,
+
+        containedInPlace: {
+          "@type": "AdministrativeArea",
+          name: location.state,
+        },
+      };
+    }),
+
+    category:
+      category === "bird-protection"
+        ? "Bird Protection and Control"
+        : "Home Safety and Security Equipment",
+
+    ...(additionalProperties.length > 0
+      ? { additionalProperty: additionalProperties }
+      : {}),
   };
 
-  // Return combined schema
+  // ==========================================================
+  // OFFER CATALOG
+  // No prices, ratings, or warranties are invented here.
+  // Add genuine offers only after confirming the details.
+  // ==========================================================
+
+  const offerCatalog = {
+    "@type": "OfferCatalog",
+    name: `${BUSINESS_NAME} Installation Services`,
+
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: `${serviceName} Consultation`,
+          description:
+            `Contact ${BUSINESS_NAME} to discuss ${serviceName} installation requirements.`,
+          provider: {
+            "@type": "Organization",
+            "@id": `${BUSINESS_URL}/#organization`,
+          },
+        },
+        url: serviceUrl,
+      },
+    ],
+  };
+
+  const serviceWithCatalog = {
+    ...serviceSchema,
+    hasOfferCatalog: offerCatalog,
+  };
+
+  // ==========================================================
+  // COMBINED STRUCTURED DATA
+  // ==========================================================
+
   return {
     "@context": "https://schema.org",
+
     "@graph": [
-      productSchema,
-      serviceSchema,
       organizationSchema,
+      productSchema,
+      serviceWithCatalog,
     ],
   };
 }
