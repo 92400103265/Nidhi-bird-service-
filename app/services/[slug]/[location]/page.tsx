@@ -72,17 +72,6 @@ function CheckCircle2({ className = "" }: IconProps) {
 
 import { locationData, validLocations } from "@/constants/locations";
 
-// Fallback profile for the primary business location. Coordinates are approximate
-// Sohna town-centre coordinates; replace them if you have verified business coordinates.
-const SOHNA_LOCATION = {
-  areas: ["Sohna", "South Gurugram", "Bhondsi", "Damdama", "Badshahpur"],
-  primaryAreas: ["Sohna", "Bhondsi", "Damdama"],
-  latitude: 28.247,
-  longitude: 77.065,
-};
-
-const isSohnaLocation = (location: string) =>
-  location === "sohna" || location === "sohna-haryana";
 
 
 export async function generateMetadata({
@@ -96,19 +85,25 @@ export async function generateMetadata({
   const service = servicesData[canonicalSlug];
 
   const normalizedLocation =
-    location.toLowerCase() as keyof typeof locationData;
+    typeof location === "string"
+      ? location.trim().toLowerCase()
+      : "";
 
-  const isSohna = isSohnaLocation(normalizedLocation);
-
-  if (!service || (!validLocations.includes(normalizedLocation) && !isSohna)) {
-    return {};
+  if (
+    !service ||
+    !validLocations.includes(normalizedLocation as (typeof validLocations)[number]) ||
+    !locationData[normalizedLocation as keyof typeof locationData]
+  ) {
+    return {
+      title: "Page Not Found | Nidhi Bird Service",
+      robots: { index: false, follow: true },
+    };
   }
 
-  const locationFormatted = isSohna
-    ? "Sohna, Haryana"
-    : normalizedLocation.charAt(0).toUpperCase() + normalizedLocation.slice(1);
-
-  const locationInfo = isSohna ? SOHNA_LOCATION : locationData[normalizedLocation];
+  const locationKey = normalizedLocation as keyof typeof locationData;
+  const locationInfo = locationData[locationKey];
+  const locationFormatted =
+    locationKey.charAt(0).toUpperCase() + locationKey.slice(1);
 
   const areas = locationInfo.areas.join(", ");
 
@@ -196,7 +191,7 @@ export function generateStaticParams(): {
   location: string;
 }[] {
   const locations = Array.from(
-    new Set([...validLocations.map((location) => location.toLowerCase()), "sohna"])
+    new Set(validLocations.map((location) => location.toLowerCase()))
   );
 
   return Object.keys(servicesData).flatMap((slug) =>
@@ -223,24 +218,22 @@ export default async function ServiceLocationPage({
   const service = servicesData[canonicalSlug];
 
   const normalizedLocation =
-    location.toLowerCase() as keyof typeof locationData;
-
-  const isSohna = isSohnaLocation(normalizedLocation);
+    typeof location === "string"
+      ? location.trim().toLowerCase()
+      : "";
 
   if (
     !service ||
-    (!validLocations.includes(normalizedLocation) && !isSohna)
+    !validLocations.includes(normalizedLocation as (typeof validLocations)[number]) ||
+    !locationData[normalizedLocation as keyof typeof locationData]
   ) {
     notFound();
   }
 
-  const locationFormatted = isSohna
-    ? "Sohna, Haryana"
-    : normalizedLocation.charAt(0).toUpperCase() + normalizedLocation.slice(1);
-
-  const locationInfo = isSohna
-    ? SOHNA_LOCATION
-    : locationData[normalizedLocation as keyof typeof locationData];
+  const locationKey = normalizedLocation as keyof typeof locationData;
+  const locationInfo = locationData[locationKey];
+  const locationFormatted =
+    locationKey.charAt(0).toUpperCase() + locationKey.slice(1);
 
   const cityProfile =
     LOCATION_PROFILES[
@@ -317,7 +310,7 @@ export default async function ServiceLocationPage({
         address: {
           "@type": "PostalAddress",
 
-          addressLocality: "Sohna",
+          addressLocality: "Gurugram",
 
           addressRegion: "Haryana",
 
@@ -374,7 +367,7 @@ export default async function ServiceLocationPage({
           address: {
             "@type": "PostalAddress",
 
-            addressLocality: "Sohna",
+            addressLocality: "Gurugram",
 
             addressRegion: "Haryana",
 
@@ -1052,7 +1045,7 @@ export default async function ServiceLocationPage({
                 </p>
 
                 <p>
-                  Sohna, Haryana, India
+                  Gurugram, Haryana, India
                 </p>
 
                 <p>
