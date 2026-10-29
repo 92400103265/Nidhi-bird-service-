@@ -94,18 +94,54 @@ interface ServiceData {
 }
 
 type Props = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; location: string }>;
   searchParams?: Promise<Record<string, string | string[] | undefined>>;
 };
 
 export async function generateStaticParams() {
-  return Object.keys(servicesData).map((slug) => ({ slug }));
+  const locations = PRIMARY_LOCATIONS.filter((loc) => {
+    const locationSlug = loc.name
+      .toLowerCase()
+      .trim()
+      .replace(/\\s+/g, "-");
+
+    // Do not generate Sohna, Haryana routes.
+    return (
+      locationSlug !== "sohna" &&
+      locationSlug !== "sohna-haryana"
+    );
+  });
+
+  return Object.keys(servicesData).flatMap((slug) =>
+    locations.map((loc) => ({
+      slug,
+      location: loc.name
+        .toLowerCase()
+        .trim()
+        .replace(/\\s+/g, "-"),
+    })),
+  );
 }
 
 export async function generateMetadata({
   params,
 }: Props): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug, location } = await params;
+
+  const normalizedLocation = location
+    .toLowerCase()
+    .trim()
+    .replace(/\\s+/g, "-");
+
+  if (
+    normalizedLocation === "sohna" ||
+    normalizedLocation === "sohna-haryana"
+  ) {
+    return {
+      title: "Location Not Found - Nidhi Bird Service",
+      robots: { index: false, follow: false },
+    };
+  }
 
   const canonicalSlug = resolveServiceSlug(slug);
 
@@ -135,7 +171,7 @@ export async function generateMetadata({
     .toLowerCase()}"`;
 
   const canonicalUrl = getCanonicalUrl(
-    `/services/${canonicalSlug}`
+    `/services/${canonicalSlug}/${normalizedLocation}`
   );
 
   return {
@@ -163,7 +199,19 @@ export async function generateMetadata({
 export default async function ServiceDetailPage({
   params,
 }: Props) {
-  const { slug } = await params;
+  const { slug, location } = await params;
+
+  const normalizedLocation = location
+    .toLowerCase()
+    .trim()
+    .replace(/\\s+/g, "-");
+
+  if (
+    normalizedLocation === "sohna" ||
+    normalizedLocation === "sohna-haryana"
+  ) {
+    notFound();
+  }
 
   const canonicalSlug = resolveServiceSlug(slug);
 

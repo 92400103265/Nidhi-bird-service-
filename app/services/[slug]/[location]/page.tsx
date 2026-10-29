@@ -88,19 +88,30 @@ const BASE_URL = "https://www.nidhibirdservice.in";
 
 
 
+/**
+ * Normalize location names consistently for route slugs.
+ * Sohna and Sohna, Haryana are excluded from generated and rendered pages.
+ */
+function normalizeLocationSlug(value: string): string {
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/,/g, "")
+    .replace(/\s+/g, "-");
+}
+
+function isExcludedLocationSlug(slug: string): boolean {
+  return slug === "sohna" || slug === "sohna-haryana";
+}
+
 function getLocationBySlug(slug: string) {
-  // Sohna is intentionally excluded from this location page.
-  if (slug === "sohna" || slug === "sohna-haryana") {
+  if (isExcludedLocationSlug(slug)) {
     return undefined;
   }
 
   return PRIMARY_LOCATIONS.find((loc) => {
-    const locationSlug = loc.name.toLowerCase().replace(/\s+/g, "-");
-    return (
-      locationSlug === slug &&
-      locationSlug !== "sohna" &&
-      locationSlug !== "sohna-haryana"
-    );
+    const locationSlug = normalizeLocationSlug(loc.name);
+    return locationSlug === slug && !isExcludedLocationSlug(locationSlug);
   });
 }
 
@@ -118,13 +129,10 @@ function getLocationBySlug(slug: string) {
 
 export async function generateStaticParams() {
   return PRIMARY_LOCATIONS
-    .filter((loc) => {
-      const slug = loc.name.toLowerCase().replace(/\s+/g, "-");
-      return slug !== "sohna" && slug !== "sohna-haryana";
-    })
     .map((loc) => ({
-      location: loc.name.toLowerCase().replace(/\s+/g, "-"),
-    }));
+      location: normalizeLocationSlug(loc.name),
+    }))
+    .filter(({ location }) => !isExcludedLocationSlug(location));
 }
 
 
@@ -167,7 +175,7 @@ export async function generateMetadata({
 
 
 
-  const normalizedLocation = locName.toLowerCase().replace(/\s+/g, "-");
+  const normalizedLocation = normalizeLocationSlug(locName);
 
 
 
@@ -452,7 +460,7 @@ export default async function LocationPage({
 
 
 
-  const normalizedLocation = locName.toLowerCase().replace(/\s+/g, "-");
+  const normalizedLocation = normalizeLocationSlug(locName);
 
 
 
@@ -462,12 +470,11 @@ export default async function LocationPage({
 
 
 
-  const matched =
-    normalizedLocation === "sohna" || normalizedLocation === "sohna-haryana"
-      ? undefined
-      : validLocations.includes(sharedLocationKey as any)
-        ? locationData[sharedLocationKey]
-        : undefined;
+  const matched = isExcludedLocationSlug(normalizedLocation)
+    ? undefined
+    : validLocations.includes(sharedLocationKey as any)
+      ? locationData[sharedLocationKey]
+      : undefined;
 
 
 
