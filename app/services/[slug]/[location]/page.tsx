@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Metadata } from "next";
 
 import { notFound } from "next/navigation";
@@ -63,9 +61,6 @@ const BUSINESS_EMAIL =
 
 
 
-const BUSINESS_ADDRESS =
-
-  "Sohna, Haryana, India";
 
 /**
  * Builds location-specific introductory copy locally so this page does not
@@ -277,7 +272,6 @@ export async function generateMetadata({
 
     state: matched.state,
 
-    fullAddress: BUSINESS_ADDRESS,
 
   };
 
