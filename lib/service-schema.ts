@@ -15,12 +15,8 @@ import {
 // ============================================================
 
 const BUSINESS_NAME = "Nidhi Bird Service";
-
 const BUSINESS_PHONE = PRIMARY.phone;
-
 const BUSINESS_URL = "https://www.nidhibirdservice.in";
-
-const BUSINESS_WHATSAPP = "https://wa.me/918603237881";
 
 // ============================================================
 // SERVICE SCHEMA GENERATOR
@@ -48,13 +44,16 @@ export function generateServiceSchema(params: {
 
   const organizationSchema = generateOrganizationSchema();
 
+  // Normalize the service slug.
+  const normalizedSlug = slug.replace(/^\/+|\/+$/g, "");
+
   // Build absolute URLs safely.
-  const normalizedImage = image.startsWith("http")
+  const normalizedImage = /^https?:\/\//i.test(image)
     ? image
     : `${baseUrl}/${image.replace(/^\/+/, "")}`;
 
   const serviceUrl =
-    `${BUSINESS_URL}/services/${slug.replace(/^\/+|\/+$/g, "")}/`;
+    `${BUSINESS_URL}/services/${normalizedSlug}/`;
 
   // Extract optional product details from specifications.
   const model = specifications.find((spec) =>
@@ -73,24 +72,16 @@ export function generateServiceSchema(params: {
 
   // ==========================================================
   // PRODUCT SCHEMA
-  // Use Product only when the page genuinely describes a
-  // purchasable physical product. The Service schema below
-  // represents the installation service.
   // ==========================================================
 
   const productSchema = {
     "@type": "Product",
     "@id": `${serviceUrl}#product`,
-
     name: serviceName,
-
     description,
-
     image: normalizedImage,
-
     url: serviceUrl,
-
-    sku: `NBS-${slug.toUpperCase().replace(/[^A-Z0-9-]/g, "-")}`,
+    sku: `NBS-${normalizedSlug.toUpperCase().replace(/[^A-Z0-9-]/g, "-")}`,
 
     brand: {
       "@type": "Brand",
@@ -109,7 +100,6 @@ export function generateServiceSchema(params: {
         : "Home Safety and Security Equipment",
 
     ...(model ? { model } : {}),
-
     ...(material ? { material } : {}),
 
     ...(additionalProperties.length > 0
@@ -123,9 +113,7 @@ export function generateServiceSchema(params: {
 
   const serviceSchema = {
     "@type": "Service",
-
     "@id": `${serviceUrl}#service`,
-
     name: `${serviceName} Installation Service`,
 
     serviceType: [
@@ -134,13 +122,10 @@ export function generateServiceSchema(params: {
       "Home Safety",
     ],
 
-    description:
-      `Professional ${serviceName} installation by ${BUSINESS_NAME}. Contact us for service details and a quotation.`,
+    description: `Professional ${serviceName} installation by ${BUSINESS_NAME}. Contact us for service details and a quotation.`,
 
     url: serviceUrl,
-
     image: normalizedImage,
-
     telephone: BUSINESS_PHONE,
 
     provider: {
@@ -157,7 +142,6 @@ export function generateServiceSchema(params: {
       return {
         "@type": "City",
         name: location.name,
-
         containedInPlace: {
           "@type": "AdministrativeArea",
           name: location.state,
@@ -177,8 +161,6 @@ export function generateServiceSchema(params: {
 
   // ==========================================================
   // OFFER CATALOG
-  // No prices, ratings, or warranties are invented here.
-  // Add genuine offers only after confirming the details.
   // ==========================================================
 
   const offerCatalog = {
@@ -188,16 +170,19 @@ export function generateServiceSchema(params: {
     itemListElement: [
       {
         "@type": "Offer",
+
         itemOffered: {
           "@type": "Service",
           name: `${serviceName} Consultation`,
-          description:
-            `Contact ${BUSINESS_NAME} to discuss ${serviceName} installation requirements.`,
+
+          description: `Contact ${BUSINESS_NAME} to discuss ${serviceName} installation requirements.`,
+
           provider: {
             "@type": "Organization",
             "@id": `${BUSINESS_URL}/#organization`,
           },
         },
+
         url: serviceUrl,
       },
     ],

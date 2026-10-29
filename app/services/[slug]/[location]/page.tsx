@@ -88,68 +88,20 @@ const BASE_URL = "https://www.nidhibirdservice.in";
 
 
 
-/* =========================================================
-
-   ADDITIONAL SERVICE LOCATION: SOHNA, HARYANA
-
-   This fallback makes /locations/sohna/ available even if
-
-   Sohna is not yet present in the shared location constants.
-
-========================================================= */
-
-
-
-const SOHNA_LOCATION = {
-
-  name: "Sohna",
-
-  state: "Haryana",
-
-  areas: [
-
-    "Sohna",
-
-    "South Gurugram",
-
-    "Bhondsi",
-
-    "Damdama",
-
-    "Badshahpur",
-
-  ],
-
-  // Approximate city-centre coordinates for the map embed.
-
-  latitude: 28.247,
-
-  longitude: 77.065,
-
-};
-
-
-
 function getLocationBySlug(slug: string) {
+  // Sohna is intentionally excluded from this location page.
+  if (slug === "sohna" || slug === "sohna-haryana") {
+    return undefined;
+  }
 
-  const existing = PRIMARY_LOCATIONS.find(
-
-    (loc) => loc.name.toLowerCase().replace(/\s+/g, "-") === slug
-
-      || loc.name.toLowerCase() === slug
-
-  );
-
-
-
-  if (existing) return existing;
-
-  if (slug === "sohna" || slug === "sohna-haryana") return SOHNA_LOCATION;
-
-
-
-  return undefined;
-
+  return PRIMARY_LOCATIONS.find((loc) => {
+    const locationSlug = loc.name.toLowerCase().replace(/\s+/g, "-");
+    return (
+      locationSlug === slug &&
+      locationSlug !== "sohna" &&
+      locationSlug !== "sohna-haryana"
+    );
+  });
 }
 
 
@@ -165,27 +117,14 @@ function getLocationBySlug(slug: string) {
 
 
 export async function generateStaticParams() {
-
-  const existingParams = PRIMARY_LOCATIONS.map((loc) => ({
-
-    location: loc.name.toLowerCase().replace(/\s+/g, "-"),
-
-  }));
-
-
-
-  // Always include Sohna, Haryana.
-
-  if (!existingParams.some((item) => item.location === "sohna")) {
-
-    existingParams.push({ location: "sohna" });
-
-  }
-
-
-
-  return existingParams;
-
+  return PRIMARY_LOCATIONS
+    .filter((loc) => {
+      const slug = loc.name.toLowerCase().replace(/\s+/g, "-");
+      return slug !== "sohna" && slug !== "sohna-haryana";
+    })
+    .map((loc) => ({
+      location: loc.name.toLowerCase().replace(/\s+/g, "-"),
+    }));
 }
 
 
@@ -524,15 +463,10 @@ export default async function LocationPage({
 
 
   const matched =
-
     normalizedLocation === "sohna" || normalizedLocation === "sohna-haryana"
-
-      ? SOHNA_LOCATION
-
+      ? undefined
       : validLocations.includes(sharedLocationKey as any)
-
         ? locationData[sharedLocationKey]
-
         : undefined;
 
 
@@ -879,49 +813,7 @@ export default async function LocationPage({
 
         ],
 
-
-
-        /* =================================================
-
-           BUSINESS OFFICE ADDRESS
-
-        ================================================== */
-
-
-
-        address: {
-
-          "@type": "PostalAddress",
-
-
-
-          streetAddress:
-
-            "Sohna",
-
-
-
-          addressLocality:
-
-            "Sohna",
-
-
-
-          addressRegion:
-
-            "Haryana",
-
-
-
-          addressCountry:
-
-            "IN",
-
-        },
-
-
-
-        geo: {
+geo: {
 
           "@type": "GeoCoordinates",
 
